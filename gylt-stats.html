@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GYLT - Statistiken</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="gylt.css" />
+</head>
+<body class="gyltPage">
+  <header class="topbar gyltTopbar">
+    <a href="homepage.html" class="ghost gyltBackLink">Zurück</a>
+
+    <div class="gyltTitleBlock">
+      <div class="small gyltHeaderEyebrow">GYLT Alpha</div>
+      <h1>GYLT</h1>
+    </div>
+
+    <div class="small gyltHeaderMeta">Get Your Live Together</div>
+  </header>
+
+  <main class="view gyltMain">
+    <div class="gyltPhoneStage">
+      <div class="gyltPhoneFrame">
+        <div class="gyltPhoneNotch" aria-hidden="true"></div>
+
+        <div class="gyltPhoneScreen">
+          <section class="panel gyltHero gyltSubHero gyltStatsHero">
+            <div class="gyltHeroCopy">
+              <div class="gyltStatsHeroHead">
+                <div class="gyltEyebrow">Statistiken</div>
+                <div id="gyltStatsFlame" class="gyltStreakFlame isOff" aria-label="Streak-Status">
+                  <span class="gyltStreakFlameIcon" aria-hidden="true">🔥</span>
+                  <strong id="gyltStatsFlameCount">0</strong>
+                </div>
+              </div>
+              <h2 class="gyltTitle">Dein Fortschritt soll sichtbar werden.</h2>
+              <p class="gyltLead">
+                Nicht perfekt sein, sondern Muster erkennen: Was trägt dich, was zieht dich raus und wie steht dein Vergleich mit anderen?
+              </p>
+            </div>
+
+            <section class="gyltSummaryCard" aria-label="Wochenüberblick">
+              <div class="gyltSummaryTop">
+                <span>Diese Woche</span>
+                <span class="small">7 Tage</span>
+              </div>
+
+              <div class="gyltMetricGrid">
+                <article class="gyltMetricCard">
+                  <div class="small">Erfolgsquote</div>
+                  <strong id="gyltStatsSuccessQuote">0%</strong>
+                  <p id="gyltStatsSuccessText">Sobald du Aufgaben nutzt, erscheint hier deine echte Wochenquote.</p>
+                </article>
+
+                <article class="gyltMetricCard">
+                  <div class="small">Stärkster Tag</div>
+                  <strong id="gyltStatsStrongestDay">-</strong>
+                  <p id="gyltStatsStrongestText">Hier wird sichtbar, wann dein System am besten greift.</p>
+                </article>
+
+                <article class="gyltMetricCard gyltMetricCardAccent">
+                  <div class="small">Momentum</div>
+                  <strong id="gyltStatsMomentum">0 Tage</strong>
+                  <p id="gyltStatsMomentumText">Deine Serie wächst aus komplett erledigten Tagen.</p>
+                </article>
+              </div>
+
+              <div class="gyltStatsNotifyRow">
+                <button id="gyltStatsNotifyButton" class="ghost" type="button">Erinnerung aktivieren</button>
+                <div id="gyltStatsNotifyStatus" class="small">Lokale Erinnerung ist aus.</div>
+              </div>
+            </section>
+          </section>
+
+          <section class="gyltAppGrid">
+            <section class="panel gyltAppPanel">
+              <div class="panelHeader">
+                <h3>Wochenleistung</h3>
+                <div class="small">Montag bis Sonntag</div>
+              </div>
+
+              <div id="gyltStatsWeekBars" class="gyltBarList"></div>
+            </section>
+
+            <section class="panel gyltAppPanel">
+              <div class="panelHeader">
+                <h3>Challenges</h3>
+                <div class="small">XP & Level</div>
+              </div>
+
+              <div class="gyltInsightList">
+                <article class="gyltInsightCard gyltChallengeSummaryCard">
+                  <div class="small">Dein Stand</div>
+                  <strong><span id="gyltStatsLevel">Level 1</span> <span id="gyltStatsXp">0 XP</span></strong>
+                  <p id="gyltStatsLevelText">Noch keine XP gesammelt. Deine ersten Challenges warten schon.</p>
+                </article>
+              </div>
+
+              <div id="gyltStatsChallengeList" class="gyltInsightList" aria-live="polite"></div>
+            </section>
+          </section>
+
+          <section class="panel gyltAppPanel">
+            <div class="panelHeader">
+              <h3>Freunde-Vergleich</h3>
+              <div class="small">Rangliste & Druck</div>
+            </div>
+
+            <article class="gyltMetricCard gyltStatsRankCard">
+              <div class="small">Dein Platz</div>
+              <strong id="gyltStatsMyRank">#-</strong>
+              <p id="gyltStatsMyRankText">Noch kein Vergleich da.</p>
+            </article>
+
+            <div id="gyltSharedStatsList" class="gyltCompareList" aria-live="polite"></div>
+          </section>
+
+          <nav class="gyltBottomNav" aria-label="App Navigation">
+            <a class="gyltBottomNavItem" href="gylt.html">Tagebuch</a>
+            <a class="gyltBottomNavItem isActive" href="gylt-stats.html">Statistiken</a>
+            <a class="gyltBottomNavItem" href="gylt-profile.html">Mein Profil</a>
+            <a class="gyltBottomNavItem" href="gylt-fitness.html">Fitness</a>
+            <a class="gyltBottomNavItem" href="gylt-settings.html">Einstellungen</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="gyltPhoneHint small">Handy-Ansicht für die spätere App.</div>
+    </div>
+  </main>
+  <script src="gylt-stats.js"></script>
+</body>
+</html>

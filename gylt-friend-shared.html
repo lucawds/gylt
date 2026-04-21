@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GYLT - Geteilter Fortschritt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="gylt.css" />
+</head>
+<body class="gyltPage">
+  <header class="topbar gyltTopbar">
+    <a href="gylt-stats.html" class="ghost gyltBackLink">Zur Statistik</a>
+
+    <div class="gyltTitleBlock">
+      <div class="small gyltHeaderEyebrow">GYLT Alpha</div>
+      <h1>GYLT</h1>
+    </div>
+
+    <div class="small gyltHeaderMeta">Get Your Live Together</div>
+  </header>
+
+  <main class="view gyltMain">
+    <div class="gyltPhoneStage">
+      <div class="gyltPhoneFrame">
+        <div class="gyltPhoneNotch" aria-hidden="true"></div>
+
+        <div class="gyltPhoneScreen">
+          <section class="panel gyltHero gyltSubHero">
+            <div class="gyltHeroCopy">
+              <div class="gyltEyebrow">Geteilter Fortschritt</div>
+              <h2 id="gyltFriendSharedName" class="gyltTitle">Freund</h2>
+              <p id="gyltFriendSharedLead" class="gyltLead">Hier siehst du den freigegebenen Überblick dieses Accounts.</p>
+            </div>
+
+            <section class="gyltSummaryCard" aria-label="Freundesübersicht">
+              <div class="gyltSummaryTop">
+                <span>Freund</span>
+                <span id="gyltFriendSharedRank" class="small">#-</span>
+              </div>
+
+              <div class="gyltMetricGrid">
+                <article class="gyltMetricCard">
+                  <div class="small">Wochenquote</div>
+                  <strong id="gyltFriendSharedWeekly">0%</strong>
+                  <p id="gyltFriendSharedWeeklyText">Noch keine Daten.</p>
+                </article>
+
+                <article class="gyltMetricCard gyltMetricCardAccent">
+                  <div class="small">Streak</div>
+                  <strong id="gyltFriendSharedStreak">0 Tage</strong>
+                  <p id="gyltFriendSharedStreakText">Noch keine laufende Serie.</p>
+                </article>
+              </div>
+            </section>
+          </section>
+
+          <section class="gyltAppGrid">
+            <section class="panel gyltAppPanel">
+              <div class="panelHeader">
+                <h3>Geteilte Woche</h3>
+                <div class="small">7 Tage</div>
+              </div>
+
+              <div id="gyltFriendSharedBars" class="gyltBarList"></div>
+            </section>
+
+            <section class="panel gyltAppPanel">
+              <div class="panelHeader">
+                <h3>Einordnung</h3>
+                <div class="small">kurzer Blick</div>
+              </div>
+
+              <div class="gyltInsightList">
+                <article class="gyltInsightCard">
+                  <div class="small">Vergleich zu dir</div>
+                  <strong id="gyltFriendSharedCompareTitle">Noch kein Vergleich</strong>
+                  <p id="gyltFriendSharedCompareText">Sobald Daten da sind, wird hier der Abstand sichtbar.</p>
+                </article>
+                <article class="gyltInsightCard">
+                  <div class="small">Tendenz</div>
+                  <strong id="gyltFriendSharedTrendTitle">Noch offen</strong>
+                  <p id="gyltFriendSharedTrendText">Hier wird sichtbar, wie konstant der Freund gerade wirkt.</p>
+                </article>
+              </div>
+            </section>
+          </section>
+
+          <nav class="gyltBottomNav" aria-label="App Navigation">
+            <a class="gyltBottomNavItem" href="gylt.html">Tagebuch</a>
+            <a class="gyltBottomNavItem isActive" href="gylt-stats.html">Statistiken</a>
+            <a class="gyltBottomNavItem" href="gylt-profile.html">Mein Profil</a>
+            <a class="gyltBottomNavItem" href="gylt-fitness.html">Fitness</a>
+            <a class="gyltBottomNavItem" href="gylt-settings.html">Einstellungen</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="gyltPhoneHint small">Handy-Ansicht für die spätere App.</div>
+    </div>
+  </main>
+  <script src="gylt-friend-shared.js"></script>
+</body>
+</html>

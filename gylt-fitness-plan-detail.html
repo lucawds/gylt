@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GYLT - Workout bearbeiten</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="gylt.css" />
+</head>
+<body class="gyltPage gyltFitnessPage">
+  <header class="topbar gyltTopbar">
+    <a id="gyltFitnessDetailBackLink" href="gylt-fitness.html" class="ghost gyltBackLink">Zurück</a>
+
+    <div class="gyltTitleBlock">
+      <div class="small gyltHeaderEyebrow">GYLT Alpha</div>
+      <h1>GYLT</h1>
+    </div>
+
+    <div class="small gyltHeaderMeta">Get Your Live Together</div>
+  </header>
+
+  <main class="view gyltMain">
+    <div class="gyltPhoneStage">
+      <div class="gyltPhoneFrame">
+        <div class="gyltPhoneNotch" aria-hidden="true"></div>
+
+        <div class="gyltPhoneScreen">
+          <section class="gyltFitnessCreateTop">
+            <div class="gyltEyebrow">Workout</div>
+            <h2 id="gyltFitnessDetailTitle" class="gyltFitnessSectionTitle">Workout bearbeiten</h2>
+            <p id="gyltFitnessDetailText" class="gyltLead gyltFitnessLead">Name, Übungen und Wochenplan getrennt bearbeiten.</p>
+            <div id="gyltFitnessDetailStatus" class="small gyltInlineStatus">Lädt gerade.</div>
+          </section>
+
+          <section id="gyltFitnessDetailCreatePanel" class="gyltFitnessWorkoutCreatePanel hidden">
+            <form id="gyltFitnessDetailCreateForm" class="gyltFitnessCreateForm">
+              <label class="gyltFitnessNameField">
+                <span>Name des Workouts</span>
+                <input id="gyltFitnessDetailCreateInput" type="text" maxlength="40" autocomplete="off" />
+              </label>
+              <button class="gyltFitnessBottomCreate" type="submit">Übungen&nbsp;&nbsp;+</button>
+            </form>
+          </section>
+
+          <section id="gyltFitnessDetailEditPanel" class="gyltFitnessEditStack">
+            <section class="panel gyltAppPanel gyltFitnessEditNameCard">
+              <label class="gyltFitnessNameField">
+                <span>Name des Workouts</span>
+                <input id="gyltFitnessDetailNameInput" type="text" maxlength="40" autocomplete="off" />
+              </label>
+            </section>
+
+            <section class="gyltFitnessQuickActions" aria-label="Workout Aktionen">
+              <a id="gyltFitnessDetailWeekLink" class="gyltFitnessActionTile" href="gylt-fitness-week.html">
+                <span>Wochenplan</span>
+                <strong>Montag bis Sonntag</strong>
+              </a>
+              <a id="gyltFitnessDetailAddExerciseLink" class="gyltFitnessActionTile" href="gylt-fitness-muscle.html">
+                <span>Übungen</span>
+                <strong>Hinzufügen +</strong>
+              </a>
+            </section>
+
+            <section class="panel gyltAppPanel">
+              <div class="panelHeader">
+                <h3>Muskelgruppen</h3>
+                <div id="gyltFitnessDetailSelectedCount" class="small">0 aktiv</div>
+              </div>
+
+              <div id="gyltFitnessDetailGroupGrid" class="gyltFitnessGroupGrid" aria-live="polite"></div>
+            </section>
+
+            <section class="panel gyltAppPanel">
+              <div class="panelHeader">
+                <h3>Ausgewählte Übungen</h3>
+                <a id="gyltFitnessDetailOpenLink" class="small" href="gylt-fitness-plan.html">Ansehen</a>
+              </div>
+
+              <div id="gyltFitnessDetailExerciseSummary" class="gyltFitnessExerciseSummary" aria-live="polite"></div>
+            </section>
+          </section>
+
+          <nav class="gyltBottomNav" aria-label="App Navigation">
+            <a class="gyltBottomNavItem" href="gylt.html">Tagebuch</a>
+            <a class="gyltBottomNavItem" href="gylt-stats.html">Statistiken</a>
+            <a class="gyltBottomNavItem" href="gylt-profile.html">Mein Profil</a>
+            <a class="gyltBottomNavItem isActive" href="gylt-fitness.html">Fitness</a>
+            <a class="gyltBottomNavItem" href="gylt-settings.html">Einstellungen</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="gyltPhoneHint small">Handy-Ansicht für die spätere App.</div>
+    </div>
+  </main>
+  <script src="gylt-fitness-data.js"></script>
+  <script src="gylt-fitness-plan-detail.js"></script>
+</body>
+</html>

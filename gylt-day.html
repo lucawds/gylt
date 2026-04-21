@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GYLT - Tagesansicht</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="gylt.css" />
+</head>
+<body class="gyltPage gyltDayDetailPage">
+  <header class="topbar gyltTopbar">
+    <a href="gylt.html" class="ghost gyltBackLink">Zur Woche</a>
+
+    <div class="gyltTitleBlock">
+      <div class="small gyltHeaderEyebrow">GYLT Alpha</div>
+      <h1>GYLT</h1>
+    </div>
+
+    <div class="small gyltHeaderMeta">Get Your Live Together</div>
+  </header>
+
+  <main class="view gyltMain">
+    <div class="gyltPhoneStage">
+      <div class="gyltPhoneFrame">
+        <div class="gyltPhoneNotch" aria-hidden="true"></div>
+
+        <div class="gyltPhoneScreen">
+          <section class="panel gyltDayHero">
+            <div class="gyltDayHeroTop">
+              <div class="gyltDayHeroCopy">
+                <div class="gyltEyebrow">Detailansicht</div>
+                <h2 id="gyltDayHeroTitle" class="gyltDayHeroTitle">Heute</h2>
+                <p id="gyltDayHeroText" class="gyltDayHeroText">Alles für diesen Tag.</p>
+              </div>
+
+              <button id="gyltAddButton" class="gyltFloatingAdd gyltFloatingAddInline" type="button" aria-label="Tagesaufgabe hinzufügen">+</button>
+            </div>
+
+            <div class="gyltDayProgressRow" aria-label="Tagesstatus">
+              <div id="gyltScoreRing" class="gyltScoreRing gyltDayScoreRing" aria-label="Fortschritt">
+                <div class="gyltScoreRingInner">
+                  <strong id="gyltCompletionPercent">0%</strong>
+                  <span id="gyltCompletedCount">0 / 0</span>
+                </div>
+              </div>
+
+              <div class="gyltDayMetricStack">
+                <article class="gyltDayStatCard">
+                  <div class="small">Momentum</div>
+                  <strong id="gyltStreakCount">0 Tage</strong>
+                  <p id="gyltHabitStatus">Heute beginnt offen.</p>
+                </article>
+
+                <article class="gyltDayStatCard gyltMetricCardAccent">
+                  <div class="small">Aufgaben</div>
+                  <strong id="gyltTaskCountSummary">0 aktiv</strong>
+                  <p id="gyltTaskCountText">Noch nichts gewählt.</p>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel gyltWeekPanel gyltWeekPanelOverview" aria-label="Tagebuch-Woche">
+            <div class="panelHeader">
+              <h3>Woche</h3>
+              <div id="gyltWeekRange" class="small">-</div>
+            </div>
+
+            <div id="gyltWeekGrid" class="gyltWeekGrid gyltWeekGridSimple" aria-live="polite"></div>
+          </section>
+
+          <section class="gyltAppGrid" aria-label="GYLT Dashboard">
+            <section class="panel gyltAppPanel gyltHabitPanel">
+              <div class="panelHeader">
+                <h3 id="gyltSelectedDayTitle">Tagesaufgaben</h3>
+                <div id="gyltSelectedDayMeta" class="small">0 von 0 erledigt</div>
+              </div>
+
+              <div id="gyltTaskList" class="gyltCustomTaskList" aria-live="polite"></div>
+
+              <div class="gyltPanelActions">
+                <button id="gyltResetDay" class="ghost gyltInlineButton" type="button">Tag zurücksetzen</button>
+              </div>
+            </section>
+
+            <section class="panel gyltAppPanel gyltRoutinePanel">
+              <div class="panelHeader">
+                <h3 id="gyltDayDetailHeading">Tagesdetails</h3>
+                <div id="gyltDayDetailMeta" class="small">ausgewählter Überblick</div>
+              </div>
+
+              <div class="gyltRoutineGrid">
+                <article class="gyltRoutineCard">
+                  <div class="small">Rhythmus</div>
+                  <strong id="gyltDayRhythmTitle">Tag startet</strong>
+                  <p id="gyltDayRhythmText">Startet noch.</p>
+                </article>
+
+                <article class="gyltRoutineCard">
+                  <div class="small">Abschluss</div>
+                  <strong id="gyltDayClosureTitle">Noch offen</strong>
+                  <p id="gyltDayClosureText">Noch offen.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="panel gyltAppPanel gyltReflectionPanel">
+              <div class="panelHeader">
+                <h3 id="gyltReflectionHeading">Abend-Check-in</h3>
+                <div id="gyltReflectionMeta" class="small">Wird lokal gespeichert</div>
+              </div>
+
+              <label id="gyltReflectionLabel" class="gyltReflectionLabel" for="gyltReflectionInput">Kurzer Check-in</label>
+              <textarea
+                id="gyltReflectionInput"
+                class="gyltReflectionInput"
+                placeholder="Was war heute gut?"
+              ></textarea>
+              <div id="gyltReflectionStatus" class="small gyltReflectionStatus">Noch kein Check-in gespeichert.</div>
+            </section>
+          </section>
+
+          <nav class="gyltBottomNav" aria-label="App Navigation">
+            <a class="gyltBottomNavItem isActive" href="gylt.html">Tagebuch</a>
+            <a class="gyltBottomNavItem" href="gylt-stats.html">Statistiken</a>
+            <a class="gyltBottomNavItem" href="gylt-profile.html">Mein Profil</a>
+            <a class="gyltBottomNavItem" href="gylt-fitness.html">Fitness</a>
+            <a class="gyltBottomNavItem" href="gylt-settings.html">Einstellungen</a>
+          </nav>
+
+          <section id="gyltAddSheet" class="gyltAddSheet hidden" aria-label="Neue Tagesaufgabe hinzufügen">
+            <div class="gyltAddSheetHeader">
+              <div>
+                <div class="small">Tagesaufgaben</div>
+                <strong>Neue Aufgabe</strong>
+              </div>
+              <button id="gyltAddClose" class="gyltSheetClose" type="button" aria-label="Schließen">×</button>
+            </div>
+
+            <div class="small gyltTaskPickerLabel">Vorlagen</div>
+            <div class="gyltTaskPresetList" aria-label="Aufgabenauswahl">
+              <button class="gyltTaskPresetButton" type="button" data-preset-task="reset">Morgen-Reset</button>
+              <button class="gyltTaskPresetButton" type="button" data-preset-task="move">Bewegung</button>
+              <button class="gyltTaskPresetButton" type="button" data-preset-task="focus">Fokus-Block</button>
+              <button class="gyltTaskPresetButton" type="button" data-preset-task="fuel">Energie halten</button>
+              <button class="gyltTaskPresetButton" type="button" data-preset-task="shutdown">Abend-Check-out</button>
+            </div>
+
+            <textarea
+              id="gyltEntryInput"
+              class="gyltEntryInput"
+              placeholder="Eigene Tagesaufgabe"
+            ></textarea>
+
+            <div class="gyltAddSheetActions">
+              <button id="gyltAddCancel" class="ghost" type="button">Abbrechen</button>
+              <button id="gyltAddSave" class="ghost gyltPrimaryButton" type="button">Eigene Aufgabe speichern</button>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div class="gyltPhoneHint small">Handy-Ansicht für die spätere App.</div>
+    </div>
+  </main>
+  <script src="gylt-day.js"></script>
+</body>
+</html>

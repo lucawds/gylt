@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GYLT - Fitness</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="gylt.css" />
+</head>
+<body class="gyltPage gyltFitnessPage">
+  <header class="topbar gyltTopbar">
+    <a href="homepage.html" class="ghost gyltBackLink">Zurück</a>
+
+    <div class="gyltTitleBlock">
+      <div class="small gyltHeaderEyebrow">GYLT Alpha</div>
+      <h1>GYLT</h1>
+    </div>
+
+    <div class="small gyltHeaderMeta">Get Your Live Together</div>
+  </header>
+
+  <main class="view gyltMain">
+    <div class="gyltPhoneStage">
+      <div class="gyltPhoneFrame">
+        <div class="gyltPhoneNotch" aria-hidden="true"></div>
+
+        <div class="gyltPhoneScreen gyltFitnessHomeScreen">
+          <section class="gyltFitnessAppHeader" aria-label="Fitness Profil">
+            <div class="gyltFitnessAvatar" aria-hidden="true"></div>
+            <div>
+              <div class="small">Hallo</div>
+              <h2>luca.wds</h2>
+            </div>
+            <button class="gyltFitnessBell" type="button" aria-label="Benachrichtigungen">⌁</button>
+          </section>
+
+          <nav class="gyltFitnessTopTabs" aria-label="Fitness Bereiche">
+            <a href="gylt-fitness.html" class="gyltFitnessTopTab isActive">Training</a>
+            <a id="gyltFitnessExerciseOverviewLink" href="gylt-fitness-plan-detail.html" class="gyltFitnessTopTab">Übungen</a>
+          </nav>
+
+          <section class="gyltFitnessWorkoutSection">
+            <div class="gyltFitnessWorkoutHeader">
+              <h3>Deine Workouts</h3>
+              <a id="gyltFitnessPlanHeaderAction" class="gyltFitnessCreatePill" href="gylt-fitness-plan-detail.html?create=1">+ Erstellen</a>
+            </div>
+
+            <div id="gyltFitnessPlanOverview" class="gyltFitnessWorkoutList" aria-live="polite"></div>
+          </section>
+
+          <nav class="gyltBottomNav" aria-label="App Navigation">
+            <a class="gyltBottomNavItem" href="gylt.html">Tagebuch</a>
+            <a class="gyltBottomNavItem" href="gylt-stats.html">Statistiken</a>
+            <a class="gyltBottomNavItem" href="gylt-profile.html">Mein Profil</a>
+            <a class="gyltBottomNavItem isActive" href="gylt-fitness.html">Fitness</a>
+            <a class="gyltBottomNavItem" href="gylt-settings.html">Einstellungen</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="gyltPhoneHint small">Handy-Ansicht für die spätere App.</div>
+    </div>
+  </main>
+  <script src="gylt-fitness-data.js"></script>
+  <script src="gylt-fitness.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="homeLite">
+  <header class="topbar">
+    <h1>Homepage</h1>
+
+    <div class="settings">
+      <a href="settings.html" class="ghost settingsBtn" aria-label="Settings">&#9776;</a>
+    </div>
+  </header>
+
+  <button id="homeCartLauncher" class="homeCartLauncher" type="button" aria-label="Wishlist öffnen">
+    <span class="homeCartLauncherIcon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.5L21 7H7.2" />
+        <circle cx="10" cy="19" r="1.5" />
+        <circle cx="17" cy="19" r="1.5" />
+      </svg>
+    </span>
+    <span id="homeCartLauncherCount" class="homeCartLauncherCount">0</span>
+  </button>
+
+  <a href="gylt.html" class="homeGyltLauncher" aria-label="Zu GYLT - Get Your Live Together">
+    <span class="homeGyltLauncherIcon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <rect x="5" y="2.75" width="14" height="18.5" rx="4"></rect>
+        <path d="M9 12.5l2.1 2.1 4.4-5"></path>
+        <path d="M10 6.5h4"></path>
+      </svg>
+    </span>
+  </a>
+
+  <aside id="homeCartDock" class="panel homeCartDock hidden" aria-label="Wishlist Links">
+    <div class="panelHeader homeCartDockHeader">
+      <h3 class="homeShopTitle">
+        <span class="homeShopIcon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 2-1.5L21 7H7.2" />
+            <circle cx="10" cy="19" r="1.5" />
+            <circle cx="17" cy="19" r="1.5" />
+          </svg>
+        </span>
+        <span>Wishlist</span>
+      </h3>
+      <div class="small" id="homeCartCount">0 Links</div>
+    </div>
+
+    <form id="homeCartForm" class="homeShopForm">
+      <input
+        id="homeCartInput"
+        class="homeShopInput"
+        type="text"
+        placeholder="https://..."
+        aria-label="Neuen Wishlist Link"
+      />
+      <button class="ghost homeShopAddBtn" type="submit">+</button>
+    </form>
+    <div id="homeCartMessage" class="small homeShopMessage" aria-live="polite"></div>
+
+    <ul id="homeCartList" class="homeShopList" aria-live="polite"></ul>
+
+    <button id="homeCartClearBought" class="ghost homeShopClearBtn" type="button">
+      Alle Links entfernen
+    </button>
+  </aside>
+
+  <main class="view homeLiteMain">
+    <section class="panel homeLiteHero">
+      <div>
+        <div class="homeLiteEyebrow">Schnellstart</div>
+        <h2 class="homeLiteTitle">Klein, klar, direkt</h2>
+        <div class="small" id="homeDate">-</div>
+      </div>
+    </section>
+
+    <section id="homeLayoutCards" class="homeLiteGrid homeLayoutCards" aria-label="Startkarten">
+      <article class="homeLayoutCard" data-layout-id="todo" data-layout-label="ToDo Woche">
+        <a class="panel homeLiteCard homeLiteLinkCard homeLiteTodoCard" href="todolist.html" aria-label="Zur ToDo Woche">
+          <div class="panelHeader">
+            <h3>ToDo Woche</h3>
+            <div class="small" id="weekSummary">0/0 erledigt</div>
+          </div>
+          <div class="homeLiteProgressWrap" aria-label="Wochenfortschritt">
+            <div id="weekProgressBar" class="homeLiteProgressBar"></div>
+          </div>
+          <div class="small" id="weekPercent">0% abgeschlossen</div>
+          <div class="small" id="weekOpen">0 offen</div>
+        </a>
+      </article>
+
+      <article class="homeLayoutCard" data-layout-id="stocks" data-layout-label="Aktien und Finanzen">
+        <a class="panel homeLiteCard homeLiteLinkCard" href="aktien.html" aria-label="Zu Aktien und Finanzen">
+          <div class="panelHeader">
+            <h3>Aktien &amp; Finanzen</h3>
+            <div class="small">Neu</div>
+          </div>
+          <p class="homeLiteText">
+            Übersicht mit Kurschart, Marktüberblick und Wirtschaftskalender.
+          </p>
+          <span class="homeLiteLinkHint">Zu aktien.html</span>
+        </a>
+      </article>
+
+      <article class="homeLayoutCard" data-layout-id="sport" data-layout-label="Sport">
+        <a class="panel homeLiteCard homeLiteLinkCard homeLiteSportCard" href="sport.html" aria-label="Zu Sport">
+          <div class="panelHeader">
+            <h3>Sport</h3>
+            <div class="small">Neu</div>
+          </div>
+          <p class="homeLiteText">
+            Trainingslog, Kickbox-Kombis, Sparring-Journal, Regeneration und PR-Tracking.
+          </p>
+          <span class="homeLiteLinkHint">Zu sport.html</span>
+        </a>
+      </article>
+
+      <article class="homeLayoutCard" data-layout-id="survivalcraft" data-layout-label="Survival Craft Lite">
+        <a class="panel homeLiteCard homeLiteLinkCard" href="survival-craft.html" aria-label="Zu Survival Craft Lite">
+          <div class="panelHeader">
+            <h3>Survival Craft Lite</h3>
+            <div class="small">Game</div>
+          </div>
+          <p class="homeLiteText">
+            Sammeln, bauen und Nachtwellen überleben mit lokalem Highscore.
+          </p>
+          <span class="homeLiteLinkHint">Zu survival-craft.html</span>
+        </a>
+      </article>
+
+    </section>
+  </main>
+
+  <aside class="homeWeatherRail" aria-label="Wetter">
+    <section class="homeWeatherPanel">
+      <div class="panelHeader">
+        <h3>Wetter</h3>
+        <div class="small" id="homeWeatherState">Lade...</div>
+      </div>
+
+      <div id="homeWeatherLocation" class="small homeWeatherMeta">
+        Standort wird ermittelt...
+      </div>
+
+      <div class="homeWeatherNow">
+        <div id="homeWeatherTemp" class="homeWeatherTemp">-- C</div>
+        <div id="homeWeatherDesc" class="small homeWeatherDesc">-</div>
+      </div>
+
+      <div class="homeWeatherGrid">
+        <div id="homeWeatherFeels" class="small homeWeatherMeta">Gefühlt: -</div>
+        <div id="homeWeatherWind" class="small homeWeatherMeta">Wind: -</div>
+        <div id="homeWeatherRange" class="small homeWeatherMeta homeWeatherRange">Heute: -</div>
+      </div>
+
+      <div class="homeClockWrap">
+        <div class="homeAnalogClock" role="img" aria-label="Analoge Uhr">
+          <div id="homeClockHour" class="homeClockHand homeClockHour"></div>
+          <div id="homeClockMinute" class="homeClockHand homeClockMinute"></div>
+          <div id="homeClockSecond" class="homeClockHand homeClockSecond"></div>
+          <div class="homeClockCenter"></div>
+        </div>
+      </div>
+
+      <div class="homeStreamLinks" aria-label="Streaming Schnellzugriff">
+        <a class="homeStreamBadge isNetflix" href="https://www.netflix.com" target="_blank" rel="noopener noreferrer" aria-label="Netflix öffnen">
+          <span class="homeStreamIconWrap" aria-hidden="true">
+            <img class="homeStreamIcon" src="https://www.google.com/s2/favicons?domain=www.netflix.com&sz=64" loading="lazy" decoding="async" alt="" />
+          </span>
+        </a>
+        <a class="homeStreamBadge isPrime" href="https://www.primevideo.com" target="_blank" rel="noopener noreferrer" aria-label="Prime Video öffnen">
+          <span class="homeStreamIconWrap" aria-hidden="true">
+            <img class="homeStreamIcon" src="https://www.google.com/s2/favicons?domain=www.primevideo.com&sz=64" loading="lazy" decoding="async" alt="" />
+          </span>
+        </a>
+        <a class="homeStreamBadge isYoutube" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube öffnen">
+          <span class="homeStreamIconWrap" aria-hidden="true">
+            <img class="homeStreamIcon" src="https://www.google.com/s2/favicons?domain=www.youtube.com&sz=64" loading="lazy" decoding="async" alt="" />
+          </span>
+        </a>
+        <a class="homeStreamBadge isRtl" href="https://plus.rtl.de" target="_blank" rel="noopener noreferrer" aria-label="RTL Plus öffnen">
+          <span class="homeStreamIconWrap" aria-hidden="true">
+            <img class="homeStreamIcon" src="https://www.google.com/s2/favicons?domain=plus.rtl.de&sz=64" loading="lazy" decoding="async" alt="" />
+          </span>
+        </a>
+        <a
+          id="homeStreamSpotify"
+          class="homeStreamBadge isSpotify homeStreamDeepLink"
+          href="https://open.spotify.com"
+          data-app-url="spotify://"
+          data-web-url="https://open.spotify.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Spotify öffnen"
+        >
+          <span class="homeStreamIconWrap" aria-hidden="true">
+            <img class="homeStreamIcon" src="https://www.google.com/s2/favicons?domain=open.spotify.com&sz=64" loading="lazy" decoding="async" alt="" />
+          </span>
+        </a>
+      </div>
+    </section>
+  </aside>
+
+  <aside class="homeNewsRail gutterCard gutterCardRight" aria-label="Live News">
+    <section class="homeNewsBlock">
+      <div class="panelHeader">
+        <h3>News</h3>
+        <div class="small">Live Feed</div>
+      </div>
+      <div id="homeNewsFeed" class="homeNewsFeed tradingview-widget-container"></div>
+    </section>
+
+    <section class="homeNewsBlock">
+      <div class="panelHeader">
+        <h3>Wirtschaftsnews</h3>
+        <div class="small">Live Feed</div>
+      </div>
+      <div id="homeEcoNewsFeed" class="homeNewsFeed tradingview-widget-container"></div>
+    </section>
+  </aside>
+
+  <script src="ui-preferences.js"></script>
+  <script src="homepage.js"></script>
+</body>
+</html>

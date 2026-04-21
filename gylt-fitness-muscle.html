@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GYLT - Muskelgruppe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="gylt.css" />
+</head>
+<body class="gyltPage gyltFitnessPage">
+  <header class="topbar gyltTopbar">
+    <a id="gyltFitnessMuscleBackLink" href="gylt-fitness-plan.html" class="ghost gyltBackLink">Zur Auswahl</a>
+
+    <div class="gyltTitleBlock">
+      <div class="small gyltHeaderEyebrow">GYLT Alpha</div>
+      <h1>GYLT</h1>
+    </div>
+
+    <div class="small gyltHeaderMeta">Get Your Live Together</div>
+  </header>
+
+  <main class="view gyltMain">
+    <div class="gyltPhoneStage">
+      <div class="gyltPhoneFrame">
+        <div class="gyltPhoneNotch" aria-hidden="true"></div>
+
+        <div class="gyltPhoneScreen">
+          <section class="gyltFitnessExerciseTop">
+            <div id="gyltFitnessMuscleEyebrow" class="gyltEyebrow">Muskelgruppe</div>
+            <h2 id="gyltFitnessMuscleTitle" class="gyltFitnessSectionTitle">Übungen auswählen</h2>
+            <p id="gyltFitnessMuscleText" class="gyltLead gyltFitnessLead">Stelle dir hier deinen Fokus zusammen.</p>
+            <div id="gyltFitnessMuscleMeta" class="small gyltInlineStatus">0 Übungen ausgewählt.</div>
+          </section>
+
+          <section class="gyltFitnessExercisePicker">
+            <div class="gyltFitnessExerciseControls">
+              <select id="gyltFitnessExerciseGroupSelect" class="gyltFitnessCategorySelect" aria-label="Muskelgruppe auswählen"></select>
+              <button id="gyltFitnessExerciseCreateButton" class="gyltFitnessCreatePill" type="button">+ Erstellen</button>
+            </div>
+
+            <div id="gyltFitnessExerciseList" class="gyltFitnessExerciseList" aria-live="polite"></div>
+
+            <div class="gyltPanelActions gyltFitnessActions">
+              <a id="gyltFitnessMuscleCancelLink" class="ghost" href="gylt-fitness-plan.html">Abbrechen</a>
+              <button id="gyltFitnessSaveButton" class="ghost gyltPrimaryButton" type="button">Zum Plan hinzufügen</button>
+            </div>
+          </section>
+
+          <nav class="gyltBottomNav" aria-label="App Navigation">
+            <a class="gyltBottomNavItem" href="gylt.html">Tagebuch</a>
+            <a class="gyltBottomNavItem" href="gylt-stats.html">Statistiken</a>
+            <a class="gyltBottomNavItem" href="gylt-profile.html">Mein Profil</a>
+            <a class="gyltBottomNavItem isActive" href="gylt-fitness.html">Fitness</a>
+            <a class="gyltBottomNavItem" href="gylt-settings.html">Einstellungen</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="gyltPhoneHint small">Handy-Ansicht für die spätere App.</div>
+    </div>
+  </main>
+  <script src="gylt-fitness-data.js"></script>
+  <script src="gylt-fitness-muscle.js"></script>
+</body>
+</html>

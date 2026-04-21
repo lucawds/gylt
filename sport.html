@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sport</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="sportPage">
+  <div id="backdrop" class="backdrop hidden"></div>
+  <a href="homepage.html" class="topHomeArrow" aria-label="Zur Homepage">&larr;</a>
+
+  <header class="topbar">
+    <h1>Sport</h1>
+    <div class="settings">
+      <button id="settingsBtn" class="ghost settingsBtn" aria-label="Settings">&#9776;</button>
+      <div id="settingsMenu" class="settingsMenu hidden">
+        <a href="settings.html" class="settingsItem settingsLink">Einstellungen</a>
+        <button id="themeToggle" class="settingsItem">Light Mode</button>
+        <a href="homepage.html" class="settingsItem settingsLink">Homepage</a>
+        <a href="todolist.html" class="settingsItem settingsLink">ToDo Woche</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="view sportMain"></main>
+
+  <script src="ui-preferences.js"></script>
+  <script src="sport.js"></script>
+</body>
+</html>

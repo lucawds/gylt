@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Survival Craft Lite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="survival-craft.css" />
+</head>
+<body class="survivalCraftPage">
+  <a href="homepage.html" class="topHomeArrow" aria-label="Zur Homepage">&larr;</a>
+
+  <header class="topbar">
+    <h1>Survival Craft Lite</h1>
+    <div class="scTopActions">
+      <button id="scStartBtn" class="ghost" type="button">Start</button>
+      <button id="scPauseBtn" class="ghost" type="button">Pause</button>
+      <button id="scRestartBtn" class="ghost" type="button">Neu</button>
+    </div>
+  </header>
+
+  <main class="view scMain">
+    <section class="panel scHud">
+      <div class="scHudGrid">
+        <div class="scStat">
+          <div class="small">HP</div>
+          <div id="scHp" class="scValue">100</div>
+        </div>
+        <div class="scStat">
+          <div class="small">Wood</div>
+          <div id="scWood" class="scValue">0</div>
+        </div>
+        <div class="scStat">
+          <div class="small">Stone</div>
+          <div id="scStone" class="scValue">0</div>
+        </div>
+        <div class="scStat">
+          <div class="small">Night</div>
+          <div id="scNight" class="scValue">0</div>
+        </div>
+        <div class="scStat">
+          <div class="small">Highscore</div>
+          <div id="scHigh" class="scValue">0</div>
+        </div>
+      </div>
+      <div class="scMeta">
+        <div id="scState" class="small">Bereit</div>
+        <div id="scCycle" class="small">Tag 45s</div>
+      </div>
+    </section>
+
+    <section class="panel scStagePanel">
+      <canvas id="scCanvas" class="scCanvas" width="960" height="560" aria-label="Survival Craft Spielfeld"></canvas>
+    </section>
+
+    <section class="panel scHelp">
+      <div class="panelHeader">
+        <h3>Steuerung</h3>
+        <div class="small">komplett lokal</div>
+      </div>
+      <div class="small">WASD / Pfeile bewegen. <strong>E</strong> sammelt Ressourcen in der Nähe.</div>
+      <div class="small"><strong>B</strong> baut eine Barrikade in Blickrichtung (Kosten: 8 Wood + 4 Stone).</div>
+      <div class="small"><strong>Space</strong> Nahkampfangriff gegen Gegner.</div>
+      <div class="small">Überlebe so viele Nächte wie möglich.</div>
+    </section>
+  </main>
+
+  <script src="ui-preferences.js"></script>
+  <script src="survival-craft.js"></script>
+</body>
+</html>

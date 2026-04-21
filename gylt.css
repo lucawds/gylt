@@ -1,0 +1,2773 @@
+:root{
+  --gylt-bg-a: #0b0f16;
+  --gylt-bg-b: #06080d;
+  --gylt-text: #f3f6fb;
+  --gylt-muted: rgba(243,246,251,0.72);
+  --gylt-border: rgba(255,255,255,0.1);
+  --gylt-panel: rgba(14,18,27,0.88);
+  --gylt-panel-strong: rgba(10,13,20,0.96);
+  --gylt-accent: #ff7b4d;
+  --gylt-accent-soft: #ffb36d;
+  --gylt-accent-glow: rgba(255,123,77,0.24);
+  --gylt-shadow: 0 24px 60px rgba(0,0,0,0.32);
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.hidden{
+  display: none !important;
+}
+
+html{
+  color-scheme: dark;
+}
+
+body{
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(255,123,77,0.16), transparent 30%),
+    radial-gradient(circle at top left, rgba(255,123,77,0.14), transparent 28%),
+    radial-gradient(circle at 85% 20%, rgba(255,179,109,0.09), transparent 22%),
+    linear-gradient(180deg, var(--gylt-bg-a), var(--gylt-bg-b));
+  color: var(--gylt-text);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: .22;
+}
+
+button,
+textarea{
+  font: inherit;
+}
+
+a{
+  color: inherit;
+}
+
+.gyltPage{
+  padding: 0 18px 34px;
+}
+
+.topbar{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.view{
+  width: 100%;
+}
+
+.panel{
+  border-radius: 24px;
+  border: 0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.03), transparent 34%),
+    var(--gylt-panel);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--gylt-shadow);
+}
+
+.panelHeader{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.panelHeader h3{
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.small{
+  font-size: 12px;
+  opacity: .82;
+}
+
+.badge{
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,123,77,0.22);
+  background: rgba(255,123,77,0.12);
+}
+
+.ghost{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 0;
+  background: rgba(255,255,255,0.04);
+  color: var(--gylt-text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.ghost:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,123,77,0.28);
+  background: rgba(255,123,77,0.1);
+}
+
+.ghost:focus-visible,
+.gyltHabitButton:focus-visible,
+.gyltFocusPreset:focus-visible,
+.gyltReflectionInput:focus-visible{
+  outline: 2px solid rgba(255,198,161,0.92);
+  outline-offset: 2px;
+}
+
+.gyltTopbar{
+  max-width: 1120px;
+  margin: 0 auto 20px;
+}
+
+.gyltTitleBlock{
+  flex: 1;
+  text-align: center;
+}
+
+.gyltPage h1{
+  margin: 42px 0 8px;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 38px;
+}
+
+.gyltHeaderEyebrow,
+.gyltHeaderMeta{
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.gyltHeaderMeta{
+  min-width: 210px;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.gyltMain{
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.gyltPhoneStage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.gyltPhoneFrame{
+  width: min(100%, 430px);
+  padding: 14px;
+  border-radius: 42px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.05), transparent 16%),
+    linear-gradient(180deg, rgba(34,38,49,0.94), rgba(12,14,21,0.98));
+  box-shadow: 0 38px 110px rgba(0,0,0,0.46);
+}
+
+.gyltPhoneNotch{
+  width: 148px;
+  height: 30px;
+  margin: -2px auto 12px;
+  border-radius: 0 0 18px 18px;
+  background: rgba(6,8,13,0.98);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.gyltPhoneScreen{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: calc(100vh - 200px);
+  overflow: auto;
+  padding: 4px;
+  scrollbar-width: thin;
+}
+
+.gyltPhoneHint{
+  margin-top: 12px;
+  text-align: center;
+}
+
+.gyltHero{
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 22px;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(255,138,82,0.18), transparent 32%),
+    linear-gradient(180deg, rgba(18,23,34,0.96), rgba(8,10,16,0.94));
+  border-color: rgba(255,123,77,0.16);
+}
+
+.gyltHero::after{
+  content: "";
+  position: absolute;
+  inset: auto -80px -110px auto;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,128,72,0.16), transparent 72%);
+  pointer-events: none;
+}
+
+.gyltHeroCopy{
+  position: relative;
+  z-index: 1;
+  align-self: center;
+}
+
+.gyltStatsHeroHead{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: -18px;
+}
+
+.gyltStreakFlame{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  box-shadow: none;
+  overflow: visible;
+  transform: translateY(0);
+}
+
+.gyltStreakFlameIcon{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 18px;
+  line-height: 1;
+  filter: grayscale(1);
+  opacity: .6;
+  transform-origin: center center;
+  transform: translateY(0);
+}
+
+.gyltStreakFlame strong{
+  font-size: 14px;
+  line-height: 1;
+}
+
+.gyltStreakFlame.isAlive{
+  background: linear-gradient(160deg, rgba(255,123,77,0.24), rgba(255,179,109,0.14));
+  box-shadow: none;
+}
+
+.gyltStreakFlame.isAlive .gyltStreakFlameIcon{
+  filter: none;
+  opacity: 1;
+  animation: gyltFlameLick 1.4s ease-in-out infinite;
+}
+
+.gyltStreakFlame.isOff{
+  color: rgba(243,246,251,0.72);
+}
+
+@keyframes gyltFlameLick{
+  0%, 100%{
+    transform: scale(1) rotate(-4deg);
+  }
+
+  50%{
+    transform: scale(1.12) rotate(6deg);
+  }
+}
+
+.gyltEyebrow{
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: .8;
+}
+
+.gyltTitle{
+  margin: 8px 0 12px;
+  font-size: 44px;
+  line-height: 1.04;
+  max-width: 11ch;
+}
+
+.gyltLead{
+  margin: 0 0 12px;
+  font-size: 18px;
+  line-height: 1.55;
+  max-width: 54ch;
+}
+
+.gyltSubHero .gyltLead{
+  margin-bottom: 0;
+}
+
+.gyltText{
+  margin: 0;
+  max-width: 58ch;
+  line-height: 1.65;
+  color: var(--gylt-muted);
+}
+
+.gyltProfileHero{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.gyltProfileMeta{
+  min-width: 0;
+}
+
+.gyltProfileTopCard{
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  margin-top: 18px;
+}
+
+.gyltProfilePage .gyltPhoneScreen{
+  padding-top: 12px;
+}
+
+.gyltProfileHeaderPanel{
+  padding: 18px;
+  overflow: visible;
+}
+
+.gyltProfileHeaderPanel .gyltProfileTopCard{
+  margin-top: 0;
+}
+
+.gyltProfileAvatarColumn{
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+.gyltAvatar{
+  width: 84px;
+  height: 84px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 700;
+  color: #fff7f1;
+  background: linear-gradient(160deg, rgba(255,123,77,0.92), rgba(255,179,109,0.84));
+  box-shadow: 0 18px 36px rgba(255,123,77,0.22);
+}
+
+.gyltAvatar.hasImage{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: transparent;
+}
+
+.gyltAvatarLarge{
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  font-size: 36px;
+}
+
+.gyltProfileTopMeta{
+  min-width: 0;
+}
+
+.gyltProfileTitle{
+  max-width: none;
+  margin: 6px 0 0;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.gyltProfileLead{
+  max-width: none;
+  margin: 16px 0 0;
+  font-size: 14px;
+}
+
+.gyltProfileEditToggle{
+  min-width: 0;
+  width: 100%;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.gyltProfileStatsInline{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.gyltProfileInlineStat{
+  text-align: center;
+}
+
+.gyltProfileInlineStat strong{
+  display: block;
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.gyltProfileInlineStat span{
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--gylt-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gyltProfileEditPanel[hidden]{
+  display: none;
+}
+
+.gyltPhoneScreen .gyltHero,
+.gyltPhoneScreen .gyltAppGrid,
+.gyltPhoneScreen .gyltRoutineGrid,
+.gyltPhoneScreen .gyltPrincipleGrid,
+.gyltPhoneScreen .gyltScoreLayout,
+.gyltPhoneScreen .gyltFocusPresetRow{
+  grid-template-columns: 1fr;
+}
+
+.gyltPhoneScreen .gyltHabitPanel{
+  grid-row: auto;
+}
+
+.gyltPhoneScreen .gyltReflectionPanel{
+  grid-column: auto;
+}
+
+.gyltPhoneScreen .gyltTitle{
+  font-size: 34px;
+  max-width: none;
+}
+
+.gyltPhoneScreen .gyltLead{
+  font-size: 16px;
+}
+
+.gyltTagRow{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.gyltSummaryCard{
+  position: relative;
+  z-index: 1;
+  border-radius: 26px;
+  border: 0;
+  background: linear-gradient(180deg, rgba(20,20,24,0.98), rgba(10,11,16,0.98));
+  padding: 18px;
+  box-shadow: var(--gylt-shadow);
+}
+
+.gyltWeekPanel{
+  padding: 18px;
+}
+
+.gyltWeekGrid{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(92px, 1fr);
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+}
+
+.gyltWeekCard{
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 18px;
+  border: 0;
+  background: rgba(255,255,255,0.04);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  min-width: 92px;
+  scroll-snap-align: start;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.gyltWeekCard:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,123,77,0.26);
+  background: rgba(255,123,77,0.08);
+}
+
+.gyltWeekCard.isActive{
+  border-color: rgba(255,123,77,0.34);
+  background: linear-gradient(160deg, rgba(255,123,77,0.18), rgba(255,179,109,0.12));
+  box-shadow: 0 12px 24px rgba(255,123,77,0.12);
+}
+
+.gyltWeekCard.isToday{
+  box-shadow: 0 10px 22px rgba(255,179,109,0.1);
+}
+
+.gyltWeekDay{
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gylt-muted);
+}
+
+.gyltWeekDayNumber{
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.gyltWeekDate{
+  font-size: 12px;
+  color: var(--gylt-text);
+  justify-self: end;
+}
+
+.gyltWeekBadge{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.gyltWeekProgress{
+  grid-column: 1 / -1;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.08);
+}
+
+.gyltWeekProgressBar{
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(255,123,77,0.92), rgba(255,179,109,0.88));
+}
+
+.gyltSummaryTop{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.gyltScoreLayout{
+  display: grid;
+  grid-template-columns: 152px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+}
+
+.gyltScoreRing{
+  --gylt-progress: 0;
+  width: 152px;
+  height: 152px;
+  padding: 12px;
+  border-radius: 50%;
+  background:
+    conic-gradient(
+      var(--gylt-accent) calc(var(--gylt-progress) * 1%),
+      rgba(255,255,255,0.08) 0
+    );
+  box-shadow: inset 0 0 24px var(--gylt-accent-glow);
+}
+
+.gyltScoreRingInner{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(10,11,16,0.98);
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.gyltScoreRingInner strong{
+  font-size: 34px;
+  line-height: 1;
+}
+
+.gyltScoreRingInner span{
+  margin-top: 6px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: .74;
+}
+
+.gyltMetricGrid{
+  display: grid;
+  gap: 10px;
+}
+
+.gyltMetricCard,
+.gyltFocusCard,
+.gyltRoutineCard,
+.gyltPrincipleCard{
+  border-radius: 18px;
+  border: 0;
+  background: rgba(255,255,255,0.04);
+  padding: 14px 16px;
+}
+
+.gyltMetricCardAccent{
+  background: linear-gradient(160deg, rgba(255,110,74,0.18), rgba(255,166,76,0.08));
+}
+
+.gyltMetricCard strong,
+.gyltFocusCard strong,
+.gyltRoutineCard strong,
+.gyltPrincipleCard strong{
+  display: block;
+  margin-top: 6px;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.gyltMetricCard p,
+.gyltFocusCard p,
+.gyltRoutineCard p,
+.gyltPrincipleCard p{
+  margin: 8px 0 0;
+  line-height: 1.55;
+  color: var(--gylt-muted);
+}
+
+.gyltAppGrid{
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.gyltAppPanel{
+  padding: 18px;
+}
+
+.gyltHabitPanel{
+  grid-row: span 2;
+}
+
+.gyltReflectionPanel{
+  grid-column: span 2;
+}
+
+.gyltHabitList{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.gyltHabitButton{
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 14px;
+  border-radius: 18px;
+  border: 0;
+  background: rgba(255,255,255,0.03);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.gyltHabitButton:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,123,77,0.28);
+  background: rgba(255,123,77,0.08);
+}
+
+.gyltHabitButton.isDone{
+  border-color: rgba(255,123,77,0.3);
+  background: rgba(255,123,77,0.14);
+}
+
+.gyltHabitCheck{
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.04);
+  position: relative;
+}
+
+.gyltHabitButton.isDone .gyltHabitCheck{
+  border-color: var(--gylt-accent);
+  background: var(--gylt-accent);
+}
+
+.gyltHabitButton.isDone .gyltHabitCheck::after{
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 4px;
+  width: 5px;
+  height: 9px;
+  border: solid rgba(12,12,12,0.95);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.gyltHabitMeta{
+  display: grid;
+  gap: 4px;
+}
+
+.gyltHabitMeta strong{
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.gyltHabitMeta span{
+  line-height: 1.55;
+  color: var(--gylt-muted);
+}
+
+.gyltPanelActions{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+
+.gyltFocusPresetRow{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.gyltFocusPreset{
+  padding: 12px 10px;
+  border-radius: 16px;
+  border: 0;
+  background: rgba(255,255,255,0.04);
+  color: inherit;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.gyltFocusPreset:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,123,77,0.28);
+}
+
+.gyltFocusPreset.isActive{
+  border-color: rgba(255,123,77,0.4);
+  background: linear-gradient(160deg, rgba(255,115,74,0.22), rgba(255,166,76,0.12));
+}
+
+.gyltRoutineGrid,
+.gyltPrincipleGrid{
+  display: grid;
+  gap: 12px;
+}
+
+.gyltRoutineGrid{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gyltPrinciples{
+  margin-top: 18px;
+  padding: 20px;
+}
+
+.gyltEntrySection{
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.gyltEntryHeader{
+  margin-bottom: 10px;
+}
+
+.gyltEntryList{
+  display: grid;
+  gap: 10px;
+}
+
+.gyltEntryCard{
+  border-radius: 18px;
+  border: 0;
+  background: rgba(255,255,255,0.04);
+  padding: 14px 16px;
+}
+
+.gyltEntryCardTop{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.gyltEntryCard p{
+  margin: 10px 0 0;
+  line-height: 1.6;
+  color: var(--gylt-text);
+}
+
+.gyltPrincipleGrid{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.gyltReflectionLabel{
+  display: block;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.gyltReflectionInput{
+  width: 100%;
+  min-height: 152px;
+  resize: vertical;
+  border-radius: 18px;
+  border: 0;
+  background: rgba(9,11,18,0.82);
+  color: var(--gylt-text);
+  padding: 14px;
+  line-height: 1.6;
+}
+
+.gyltReflectionStatus{
+  margin-top: 10px;
+}
+
+.gyltBarList,
+.gyltInsightList,
+.gyltSettingList,
+.gyltProfileStack,
+.gyltFriendList,
+.gyltCompareList{
+  display: grid;
+  gap: 10px;
+}
+
+.gyltFriendForm{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 88px 88px auto;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.gyltGroupForm{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.gyltGroupFriendPicker{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.gyltGroupOption{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+}
+
+.gyltGroupOption input{
+  accent-color: var(--gylt-accent);
+}
+
+.gyltInput{
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 0;
+  background: rgba(255,255,255,0.04);
+  color: var(--gylt-text);
+  outline: none;
+}
+
+.gyltInput::placeholder{
+  color: rgba(243,246,251,0.42);
+}
+
+.gyltInput:focus-visible{
+  outline: 2px solid rgba(255,198,161,0.92);
+  outline-offset: 2px;
+}
+
+.gyltInlineStatus{
+  margin-bottom: 10px;
+}
+
+.gyltProfileEditForm{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.gyltProfileField{
+  display: grid;
+  gap: 8px;
+}
+
+.gyltProfileFieldWide{
+  grid-column: 1 / -1;
+}
+
+.gyltFileInput{
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.gyltFileInput::file-selector-button{
+  margin-right: 10px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(255,123,77,0.18);
+  color: var(--gylt-text);
+  cursor: pointer;
+}
+
+.gyltProfileUploadHint{
+  margin-top: -2px;
+}
+
+.gyltProfileBioInput{
+  min-height: 112px;
+}
+
+.gyltProfileEditActions{
+  grid-column: 1 / -1;
+}
+
+.gyltProfileHistoryGrid{
+  margin-bottom: 14px;
+}
+
+.gyltFriendCard,
+.gyltCompareCard{
+  border-radius: 18px;
+  border: 0;
+  background: rgba(255,255,255,0.04);
+  padding: 14px 16px;
+}
+
+.gyltFriendCardTop{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.gyltFriendCardTop strong{
+  display: block;
+  margin-top: 6px;
+  font-size: 17px;
+}
+
+.gyltFriendMetrics{
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.gyltFriendMetrics span{
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,123,77,0.18);
+  background: rgba(255,123,77,0.08);
+  font-size: 12px;
+}
+
+.gyltDeleteButton{
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 0;
+  background: rgba(255,255,255,0.04);
+  color: var(--gylt-text);
+  cursor: pointer;
+}
+
+.gyltDeleteButton:hover{
+  border-color: rgba(255,123,77,0.24);
+  background: rgba(255,123,77,0.1);
+}
+
+.gyltFloatingAdd{
+  position: sticky;
+  bottom: 84px;
+  align-self: flex-end;
+  width: 58px;
+  height: 58px;
+  border: 0;
+  border-radius: 20px;
+  background: linear-gradient(160deg, rgba(255,123,77,0.98), rgba(255,179,109,0.92));
+  color: #fff8f1;
+  font-size: 32px;
+  line-height: 1;
+  box-shadow: 0 18px 34px rgba(255,123,77,0.32);
+  cursor: pointer;
+  z-index: 4;
+}
+
+.gyltFloatingAdd:hover{
+  transform: translateY(-2px) scale(1.02);
+}
+
+.gyltAddSheet{
+  position: sticky;
+  bottom: 148px;
+  z-index: 5;
+  padding: 16px;
+  border-radius: 22px;
+  border: 0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), transparent 26%),
+    rgba(10,11,16,0.98);
+  box-shadow: 0 24px 50px rgba(0,0,0,0.3);
+}
+
+.gyltAddSheetHeader{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.gyltAddSheetHeader strong{
+  display: block;
+  margin-top: 4px;
+  font-size: 18px;
+}
+
+.gyltSheetClose{
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  border: 0;
+  background: rgba(255,255,255,0.04);
+  color: var(--gylt-text);
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.gyltEntryInput{
+  width: 100%;
+  min-height: 116px;
+  resize: vertical;
+  border-radius: 18px;
+  border: 0;
+  background: rgba(255,255,255,0.04);
+  color: var(--gylt-text);
+  padding: 14px;
+  line-height: 1.6;
+  outline: none;
+}
+
+.gyltEntryInput:focus-visible{
+  outline: 2px solid rgba(255,198,161,0.92);
+  outline-offset: 2px;
+}
+
+.gyltAddSheetActions{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.gyltStatsNotifyRow{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.gyltPrimaryButton{
+  border-color: rgba(255,123,77,0.26);
+  background: rgba(255,123,77,0.16);
+}
+
+.gyltCompareCard{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+  text-decoration: none;
+}
+
+.gyltCompareCard.isLeader{
+  background: linear-gradient(160deg, rgba(255,179,109,0.14), rgba(255,123,77,0.08));
+}
+
+.gyltCompareCard.isMe{
+  border-color: rgba(255,123,77,0.26);
+  background: linear-gradient(160deg, rgba(255,123,77,0.16), rgba(255,179,109,0.1));
+}
+
+.gyltCompareRank{
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  background: rgba(255,255,255,0.06);
+}
+
+.gyltCompareBody strong{
+  display: block;
+  font-size: 17px;
+}
+
+.gyltCompareBody p{
+  margin: 6px 0 0;
+  line-height: 1.5;
+  color: var(--gylt-muted);
+}
+
+.gyltCompareCard.isLink{
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease;
+}
+
+.gyltCompareCard.isLink:hover{
+  transform: translateY(-2px);
+  background: linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,123,77,0.08));
+}
+
+.gyltStatsRankGrid,
+.gyltStatsRankCard{
+  margin-bottom: 14px;
+}
+
+.gyltEmptyState{
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px dashed rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.03);
+  line-height: 1.55;
+  color: var(--gylt-muted);
+}
+
+.gyltBarRow{
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.gyltBarRow span:first-child{
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gylt-muted);
+}
+
+.gyltBarRow strong{
+  font-size: 13px;
+  line-height: 1;
+}
+
+.gyltBarTrack{
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.08);
+}
+
+.gyltBarFill{
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(255,123,77,0.9), rgba(255,179,109,0.86));
+}
+
+.gyltInsightCard{
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  padding: 14px 16px;
+}
+
+.gyltInsightCard strong{
+  display: block;
+  margin-top: 6px;
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.gyltChallengeSummaryCard strong{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.gyltInsightCard p{
+  margin: 8px 0 0;
+  line-height: 1.55;
+  color: var(--gylt-muted);
+}
+
+.gyltChallengeCard.isDone{
+  background: linear-gradient(160deg, rgba(255,123,77,0.16), rgba(255,179,109,0.08));
+}
+
+.gyltChallengeMeta{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.gyltChallengeXp{
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(255,123,77,0.1);
+  color: var(--gylt-text);
+  font-size: 12px;
+}
+
+.gyltChallengeProgress{
+  height: 10px;
+  margin: 12px 0 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.08);
+}
+
+.gyltChallengeProgressBar{
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(255,123,77,0.92), rgba(255,179,109,0.86));
+}
+
+.gyltGroupCard{
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  padding: 14px 16px;
+}
+
+.gyltGroupCardTop{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.gyltGroupCardTop strong{
+  display: block;
+  margin-top: 6px;
+  font-size: 17px;
+}
+
+.gyltGroupCardTop p{
+  margin: 8px 0 0;
+  color: var(--gylt-muted);
+  line-height: 1.5;
+}
+
+.gyltGroupMembers{
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.gyltGroupMemberRow{
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 40px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+}
+
+.gyltGroupMemberRank{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 8px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  font-weight: 700;
+}
+
+.gyltSettingRow{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 0;
+  background: rgba(255,255,255,0.04);
+}
+
+.gyltSettingRow strong{
+  display: block;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.gyltSettingRow p{
+  margin: 6px 0 0;
+  line-height: 1.5;
+  color: var(--gylt-muted);
+}
+
+.gyltSwitchFake{
+  min-width: 56px;
+  height: 32px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255,255,255,0.05);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gylt-muted);
+}
+
+.gyltSwitchFake.isOn{
+  border-color: rgba(255,123,77,0.32);
+  background: rgba(255,123,77,0.16);
+  color: var(--gylt-text);
+}
+
+.gyltBottomNav{
+  position: sticky;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  padding: 12px;
+  border-radius: 22px;
+  border: 0;
+  background: rgba(10,11,16,0.92);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.22);
+}
+
+.gyltBottomNavItem{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 8px;
+  border-radius: 14px;
+  font-size: 11px;
+  line-height: 1.15;
+  color: var(--gylt-muted);
+  text-align: center;
+  text-decoration: none;
+}
+
+.gyltBottomNavItem.isActive{
+  color: var(--gylt-text);
+  background: linear-gradient(160deg, rgba(255,115,74,0.24), rgba(255,166,76,0.12));
+}
+
+body.gyltDiaryOverview .gyltMain{
+  max-width: 420px;
+}
+
+body.gyltDiaryOverview .gyltPhoneScreen{
+  gap: 10px;
+}
+
+.gyltDiaryIntro,
+.gyltDiaryOverviewNote,
+.gyltDayHero{
+  padding: 16px;
+}
+
+.gyltDiaryIntroTitle,
+.gyltDayHeroTitle{
+  margin: 6px 0 0;
+  font-size: 28px;
+  line-height: 1.08;
+}
+
+.gyltDiaryIntroText,
+.gyltDayHeroText,
+.gyltDiaryOverviewNote p{
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--gylt-muted);
+}
+
+.gyltDiaryOverviewLabel{
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.gyltWeekGridSimple{
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-auto-flow: row;
+  grid-auto-columns: auto;
+  gap: 6px;
+  overflow: visible;
+  padding-bottom: 0;
+}
+
+.gyltWeekGridSimple .gyltWeekCard{
+  min-width: 0;
+  min-height: 92px;
+  padding: 10px 4px 8px;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-content: start;
+  gap: 6px;
+  text-align: center;
+  scroll-snap-align: none;
+}
+
+.gyltWeekGridSimple .gyltWeekDay{
+  font-size: 10px;
+}
+
+.gyltWeekGridSimple .gyltWeekDayNumber{
+  font-size: 21px;
+}
+
+body.gyltDiaryOverview .gyltWeekPanel,
+body.gyltDayDetailPage .gyltWeekPanel{
+  padding: 14px;
+}
+
+.gyltDayHero{
+  background:
+    radial-gradient(circle at top right, rgba(255,138,82,0.18), transparent 38%),
+    linear-gradient(180deg, rgba(18,23,34,0.96), rgba(8,10,16,0.94));
+  border-color: rgba(255,123,77,0.16);
+}
+
+.gyltDayHeroTop{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.gyltDayHeroCopy{
+  min-width: 0;
+}
+
+.gyltDayStatRow{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.gyltDayStatCard{
+  border-radius: 18px;
+  border: 0;
+  background: rgba(255,255,255,0.04);
+  padding: 14px;
+}
+
+.gyltDayStatCard strong{
+  display: block;
+  margin-top: 6px;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.gyltDayStatCard p{
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--gylt-muted);
+}
+
+.gyltFloatingAddInline{
+  position: static;
+  bottom: auto;
+  align-self: flex-start;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+}
+
+.gyltDayProgressRow{
+  display: grid;
+  grid-template-columns: 134px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.gyltDayScoreRing{
+  width: 134px;
+  height: 134px;
+  padding: 10px;
+}
+
+.gyltDayScoreRing .gyltScoreRingInner strong{
+  font-size: 28px;
+}
+
+.gyltDayMetricStack,
+.gyltCustomTaskList{
+  display: grid;
+  gap: 10px;
+}
+
+.gyltCustomTaskList{
+  margin-top: 10px;
+}
+
+.gyltTaskPickerLabel{
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.gyltTaskPresetList{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.gyltTaskPresetButton{
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 0;
+  background: rgba(255,255,255,0.05);
+  color: var(--gylt-text);
+  text-align: left;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, opacity .18s ease;
+}
+
+.gyltTaskPresetButton:hover{
+  transform: translateY(-1px);
+  background: rgba(255,123,77,0.12);
+}
+
+.gyltTaskPresetButton.isSelected,
+.gyltTaskPresetButton:disabled{
+  opacity: .45;
+  cursor: default;
+  background: rgba(255,255,255,0.04);
+}
+
+.gyltCustomTaskRow{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.gyltTaskRemove{
+  width: 42px;
+  border-radius: 16px;
+  border: 0;
+  background: rgba(255,255,255,0.04);
+  color: var(--gylt-text);
+  cursor: pointer;
+}
+
+.gyltTaskRemove:hover{
+  border-color: rgba(255,123,77,0.24);
+  background: rgba(255,123,77,0.1);
+}
+
+.gyltFitnessHeaderPanel{
+  padding: 18px;
+}
+
+.gyltFitnessSectionTitle{
+  margin: 6px 0 0;
+  font-size: 28px;
+  line-height: 1.15;
+}
+
+.gyltFitnessLead{
+  margin-top: 12px;
+  font-size: 15px;
+}
+
+.gyltFitnessGroupGrid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.gyltFitnessHeaderAction{
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 10px;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.gyltFitnessCreateCard{
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  min-height: 196px;
+  padding: 28px 18px;
+  border-radius: 22px;
+  text-decoration: none;
+  text-align: center;
+  background: linear-gradient(160deg, rgba(255,123,77,0.12), rgba(255,255,255,0.04));
+  transition: transform .18s ease, background .18s ease;
+}
+
+.gyltFitnessCreateCard:hover{
+  transform: translateY(-1px);
+  background: linear-gradient(160deg, rgba(255,123,77,0.18), rgba(255,255,255,0.06));
+}
+
+.gyltFitnessCreateCard strong{
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.gyltFitnessCreateCard span:last-child{
+  max-width: 24ch;
+  line-height: 1.55;
+  color: var(--gylt-muted);
+}
+
+.gyltFitnessCreatePlus{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, rgba(255,123,77,0.98), rgba(255,179,109,0.92));
+  color: #fff8f1;
+  font-size: 34px;
+  line-height: 1;
+  box-shadow: 0 18px 34px rgba(255,123,77,0.24);
+}
+
+.gyltFitnessGroupCard{
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 18px;
+  text-decoration: none;
+  background: rgba(255,255,255,0.04);
+  transition: transform .18s ease, background .18s ease;
+}
+
+.gyltFitnessGroupCard:hover{
+  transform: translateY(-1px);
+  background: rgba(255,123,77,0.1);
+}
+
+.gyltFitnessGroupCard.isSelected{
+  background: linear-gradient(160deg, rgba(255,123,77,0.16), rgba(255,179,109,0.08));
+}
+
+.gyltFitnessGroupCard.isRecovery{
+  background: linear-gradient(160deg, rgba(113,172,255,0.14), rgba(255,255,255,0.04));
+}
+
+.gyltFitnessGroupCardTop{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.gyltFitnessGroupCardTop strong{
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.gyltFitnessGroupCardBody{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 88px;
+}
+
+.gyltFitnessGroupIcon{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 22px;
+  background: radial-gradient(circle at top, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+}
+
+.gyltFitnessGroupVisual{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto;
+}
+
+.gyltFitnessGroupPhoto{
+  display: block;
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.18);
+}
+
+.gyltMuscleSvg{
+  width: 64px;
+  height: 64px;
+}
+
+.gyltMuscleBase{
+  fill: rgba(255,255,255,0.14);
+}
+
+.gyltMuscleHighlight{
+  fill: rgba(255,123,77,0.95);
+}
+
+.gyltRecoveryHighlight{
+  fill: rgba(126,193,255,0.95);
+}
+
+.gyltMuscleStroke{
+  fill: none;
+  stroke: rgba(255,123,77,0.95);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.gyltFitnessGroupBadge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.gyltFitnessPlanCard{
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  padding: 14px 16px;
+}
+
+.gyltFitnessPlanCardTop{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.gyltFitnessPlanCardTop strong{
+  display: block;
+  margin-top: 6px;
+  font-size: 17px;
+}
+
+.gyltFitnessChipRow{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.gyltFitnessChip{
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(255,123,77,0.08);
+  border: 1px solid rgba(255,123,77,0.16);
+  font-size: 12px;
+}
+
+.gyltFitnessExerciseList{
+  display: grid;
+  gap: 10px;
+}
+
+.gyltFitnessExerciseOption{
+  width: 100%;
+  display: block;
+  align-items: center;
+  padding: 14px;
+  border: 0;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease;
+}
+
+.gyltFitnessExerciseOption:hover{
+  transform: translateY(-1px);
+  background: rgba(255,123,77,0.08);
+}
+
+.gyltFitnessExerciseOption.isSelected{
+  background: linear-gradient(160deg, rgba(255,123,77,0.16), rgba(255,179,109,0.08));
+}
+
+.gyltFitnessExerciseCopy{
+  display: grid;
+  gap: 4px;
+}
+
+.gyltFitnessExerciseCopy strong{
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.gyltFitnessExerciseCopy span{
+  line-height: 1.45;
+  color: var(--gylt-muted);
+}
+
+.gyltFitnessActions{
+  margin-top: 16px;
+}
+
+.gyltFitnessTabs{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.gyltFitnessTabButton{
+  appearance: none;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  color: var(--gylt-text);
+  border-radius: 18px;
+  padding: 12px 14px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.gyltFitnessTabButton:hover{
+  transform: translateY(-1px);
+}
+
+.gyltFitnessTabButton.isActive{
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.gyltFitnessTabPanel{
+  display: grid;
+  gap: 12px;
+}
+
+.gyltFitnessCreateForm{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.gyltFitnessMiniStats{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.gyltFitnessMiniStat{
+  padding: 14px 12px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+  min-height: 82px;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.gyltFitnessMiniStat strong{
+  font-size: 22px;
+  line-height: 1;
+}
+
+.gyltFitnessPoolList{
+  min-height: 88px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 4px 0 2px;
+}
+
+.gyltPoolHint{
+  padding: 14px 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+  color: var(--gylt-muted);
+}
+
+.gyltFitnessWeekBoard{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.gyltFitnessWeekBoardStatic{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gyltFitnessDayColumn{
+  border-radius: 20px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+  min-height: 132px;
+}
+
+.gyltFitnessDayHead{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.gyltFitnessDayHead strong{
+  font-size: 16px;
+}
+
+.gyltFitnessDayHead span{
+  font-size: 11px;
+  color: var(--gylt-muted);
+}
+
+.gyltFitnessDayBody{
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.gyltFitnessDayEmpty{
+  min-height: 62px;
+  border-radius: 16px;
+  border: 1px dashed rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.02);
+  color: var(--gylt-muted);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.gyltFitnessSlotCard{
+  appearance: none;
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.06);
+  color: var(--gylt-text);
+  border-radius: 16px;
+  padding: 11px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  cursor: grab;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.gyltFitnessSlotCard:hover{
+  transform: translateY(-1px);
+}
+
+.gyltFitnessSlotCard.isPicked{
+  border-color: rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.12);
+}
+
+.gyltFitnessSlotCard.isStatic{
+  cursor: default;
+}
+
+.gyltFitnessSlotCopy{
+  display: grid;
+  gap: 4px;
+}
+
+.gyltFitnessSlotCopy strong{
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.gyltFitnessSlotCopy span{
+  font-size: 11px;
+  line-height: 1.35;
+  color: var(--gylt-muted);
+}
+
+.gyltFitnessDayNameInput{
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.05);
+  color: var(--gylt-text);
+  border-radius: 14px;
+  padding: 9px 10px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  outline: none;
+}
+
+.gyltFitnessDayNameInput::placeholder{
+  color: rgba(255,255,255,0.36);
+}
+
+.gyltFitnessDayNameInput:focus{
+  border-color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+}
+
+.gyltFitnessSlotCard .gyltFitnessSlotCopy span{
+  display: none;
+}
+
+.gyltFitnessPlanActionRow{
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gyltFitnessPlanCardClickable{
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.gyltFitnessPlanCardClickable:hover{
+  transform: translateY(-1px);
+}
+
+.gyltFitnessPlanCardClickable:focus-visible{
+  outline: 2px solid rgba(255,255,255,0.28);
+  outline-offset: 3px;
+}
+
+.gyltFitnessPlanCardClickable .gyltFitnessPlanActionRow a{
+  position: relative;
+  z-index: 1;
+}
+
+.gyltFitnessHomeScreen{
+  gap: 0;
+}
+
+.gyltFitnessAppHeader{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 22px 18px 16px;
+}
+
+.gyltFitnessAvatar{
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(255,255,255,0.72) 0 18%, transparent 19%),
+    radial-gradient(circle at 50% 82%, rgba(255,255,255,0.64) 0 36%, transparent 37%),
+    rgba(255,255,255,0.08);
+}
+
+.gyltFitnessAppHeader h2{
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: -0.04em;
+}
+
+.gyltFitnessBell{
+  width: 64px;
+  height: 64px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  color: var(--gylt-accent);
+  font-size: 30px;
+}
+
+.gyltFitnessTopTabs{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 10px 18px 0;
+}
+
+.gyltFitnessTopTab{
+  position: relative;
+  padding: 14px 6px 16px;
+  color: var(--gylt-muted);
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.gyltFitnessTopTab.isActive{
+  color: var(--gylt-text);
+}
+
+.gyltFitnessTopTab.isActive::after{
+  content: "";
+  position: absolute;
+  left: 22%;
+  right: 22%;
+  bottom: 0;
+  height: 10px;
+  border-radius: 999px 999px 0 0;
+  background: var(--gylt-accent);
+}
+
+.gyltFitnessWorkoutSection{
+  padding: 24px 18px 6px;
+}
+
+.gyltFitnessWorkoutHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.gyltFitnessWorkoutHeader h3{
+  margin: 0;
+  font-size: 23px;
+  letter-spacing: -0.04em;
+}
+
+.gyltFitnessCreatePill{
+  min-height: 46px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.1);
+  color: var(--gylt-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font: inherit;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.gyltFitnessWorkoutList{
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.gyltFitnessEmptyWorkout{
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+  padding: 28px 0 16px;
+  color: var(--gylt-muted);
+  text-align: center;
+  font-size: 19px;
+}
+
+.gyltFitnessEmptyArt{
+  width: 230px;
+  height: 150px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 42% 52%, rgba(255,179,109,0.58) 0 18px, transparent 19px),
+    linear-gradient(20deg, transparent 36%, rgba(255,255,255,0.36) 37% 51%, transparent 52%),
+    linear-gradient(12deg, transparent 48%, rgba(113,172,255,0.34) 49% 58%, transparent 59%),
+    linear-gradient(90deg, transparent 15%, var(--gylt-accent) 16% 21%, transparent 22% 70%, rgba(255,123,77,0.22) 71% 75%, transparent 76%),
+    radial-gradient(circle at 50% 70%, rgba(255,123,77,0.14), transparent 58%);
+  opacity: 0.95;
+}
+
+.gyltFitnessWorkoutCard{
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.gyltFitnessWorkoutThumb{
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--gylt-accent), rgba(255,255,255,0.06));
+}
+
+.gyltFitnessWorkoutCopy{
+  display: grid;
+  gap: 5px;
+}
+
+.gyltFitnessWorkoutCopy strong{
+  font-size: 18px;
+}
+
+.gyltFitnessWorkoutCopy span{
+  color: var(--gylt-muted);
+  font-size: 13px;
+}
+
+.gyltFitnessWorkoutActions{
+  grid-column: 2;
+  display: flex;
+  gap: 12px;
+}
+
+.gyltFitnessWorkoutActions a{
+  color: var(--gylt-muted);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.gyltFitnessCreateTop{
+  padding: 32px 18px 12px;
+  text-align: center;
+}
+
+.gyltFitnessCreateTop .gyltEyebrow,
+.gyltFitnessCreateTop .gyltLead,
+.gyltFitnessCreateTop .gyltInlineStatus{
+  display: none;
+}
+
+.gyltFitnessCreateTop h2{
+  margin: 0;
+  font-size: 25px;
+}
+
+.gyltFitnessWorkoutCreatePanel{
+  min-height: 560px;
+  padding: 44px 18px 22px;
+}
+
+.gyltFitnessWorkoutCreatePanel form{
+  min-height: 520px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: space-between;
+  gap: 22px;
+}
+
+.gyltFitnessEditStack{
+  display: grid;
+  gap: 12px;
+}
+
+.gyltFitnessEditNameCard{
+  padding-top: 28px;
+}
+
+.gyltFitnessQuickActions{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.gyltFitnessActionTile{
+  min-height: 92px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.05);
+  color: var(--gylt-text);
+  text-decoration: none;
+  padding: 16px;
+  display: grid;
+  align-content: space-between;
+}
+
+.gyltFitnessActionTile span{
+  color: var(--gylt-muted);
+  font-size: 12px;
+}
+
+.gyltFitnessActionTile strong{
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.gyltFitnessExerciseSummary{
+  display: grid;
+  gap: 12px;
+}
+
+.gyltFitnessExerciseSummaryGroup{
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.04);
+}
+
+.gyltFitnessExerciseSummaryHead{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.gyltFitnessExerciseSummaryHead span{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  display: grid;
+  place-items: center;
+  color: var(--gylt-muted);
+  font-size: 12px;
+}
+
+.gyltFitnessNameField{
+  position: relative;
+  display: grid;
+}
+
+.gyltFitnessNameField span{
+  position: absolute;
+  top: -12px;
+  left: 22px;
+  padding: 0 8px;
+  background: var(--gylt-panel);
+  color: var(--gylt-muted);
+  font-size: 15px;
+}
+
+.gyltFitnessNameField input{
+  width: 100%;
+  min-height: 76px;
+  border: 2px solid rgba(255,255,255,0.18);
+  border-radius: 22px;
+  background: rgba(255,255,255,0.04);
+  color: var(--gylt-text);
+  font: inherit;
+  font-size: 24px;
+  padding: 0 24px;
+  outline: none;
+}
+
+.gyltFitnessBottomCreate{
+  min-height: 64px;
+  border: 0;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.1);
+  color: var(--gylt-text);
+  font: inherit;
+  font-size: 20px;
+}
+
+.gyltFitnessExerciseTop{
+  padding: 32px 18px 10px;
+  text-align: center;
+}
+
+.gyltFitnessExerciseTop .gyltEyebrow,
+.gyltFitnessExerciseTop .gyltLead,
+.gyltFitnessExerciseTop .gyltInlineStatus{
+  display: none;
+}
+
+.gyltFitnessExerciseTop h2{
+  margin: 0;
+  font-size: 25px;
+}
+
+.gyltFitnessExercisePicker{
+  display: grid;
+  gap: 16px;
+}
+
+.gyltFitnessExerciseControls{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.gyltFitnessCategorySelect{
+  min-height: 58px;
+  border: 0;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.08);
+  color: var(--gylt-text);
+  font: inherit;
+  font-size: 18px;
+  padding: 0 18px;
+}
+
+body.gyltFitnessPage .gyltFitnessExerciseList{
+  gap: 0;
+  padding: 0 18px 92px;
+}
+
+body.gyltFitnessPage .gyltFitnessExerciseOption{
+  display: grid;
+  grid-template-columns: 86px 1fr auto;
+  gap: 18px;
+  align-items: center;
+  min-height: 112px;
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-radius: 0;
+  background: transparent;
+  padding: 12px 0;
+}
+
+.gyltFitnessExerciseThumb{
+  width: 76px;
+  height: 76px;
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.12), transparent),
+    linear-gradient(145deg, rgba(255,123,77,0.22), rgba(255,255,255,0.04));
+}
+
+body.gyltFitnessPage .gyltFitnessExerciseCopy strong{
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.gyltFitnessExercisePlus{
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  color: var(--gylt-text);
+  display: grid;
+  place-items: center;
+  font-size: 34px;
+  line-height: 1;
+}
+
+body.gyltFitnessPage .gyltFitnessExerciseOption.isSelected .gyltFitnessExercisePlus{
+  background: var(--gylt-accent);
+  font-size: 24px;
+}
+
+body.gyltDayDetailPage .gyltMain{
+  max-width: 460px;
+}
+
+body.gyltDayDetailPage .gyltPhoneScreen{
+  gap: 12px;
+}
+
+body.gyltDayDetailPage .gyltAddSheet{
+  bottom: 98px;
+}
+
+@media (max-width: 980px){
+  .gyltTopbar{
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .gyltTitleBlock,
+  .gyltHeaderMeta{
+    text-align: left;
+    min-width: 0;
+  }
+
+  .gyltPage h1{
+    margin: 8px 0 4px;
+    text-align: left;
+  }
+
+  .gyltTitle{
+    font-size: 32px;
+    max-width: none;
+  }
+
+  .gyltProfileHero{
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .gyltProfileTopCard{
+    grid-template-columns: 1fr;
+  }
+
+  .gyltProfilePage .gyltPhoneScreen{
+    padding-top: 8px;
+  }
+
+  .gyltProfileAvatarColumn{
+    width: 100%;
+    justify-items: center;
+  }
+
+  .gyltProfileStatsInline{
+    grid-template-columns: 1fr;
+  }
+
+  .gyltStatsHeroHead{
+    align-items: center;
+  }
+
+  .gyltSummaryCard{
+    padding: 16px;
+  }
+
+  .gyltScoreRing{
+    margin: 0 auto;
+  }
+
+  .gyltReflectionPanel{
+    grid-column: auto;
+  }
+
+  .gyltHabitPanel{
+    grid-row: auto;
+  }
+
+  .gyltBottomNavItem{
+    padding: 0 4px;
+    font-size: 9px;
+  }
+
+  .gyltFriendForm{
+    grid-template-columns: 1fr;
+  }
+
+  .gyltGroupForm,
+  .gyltGroupFriendPicker{
+    grid-template-columns: 1fr;
+  }
+
+  .gyltProfileEditForm{
+    grid-template-columns: 1fr;
+  }
+
+  .gyltDayStatRow{
+    grid-template-columns: 1fr;
+  }
+
+  .gyltDayProgressRow{
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .gyltDayMetricStack{
+    width: 100%;
+  }
+
+  .gyltTaskPresetList{
+    grid-template-columns: 1fr;
+  }
+
+  .gyltStatsNotifyRow{
+    grid-template-columns: 1fr;
+  }
+
+  .gyltGroupMemberRow{
+    grid-template-columns: auto 1fr;
+  }
+
+  .gyltFitnessGroupGrid{
+    grid-template-columns: 1fr;
+  }
+
+  .gyltFitnessCreateForm,
+  .gyltFitnessMiniStats,
+  .gyltFitnessWeekBoard,
+  .gyltFitnessWeekBoardStatic{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px){
+  .gyltPage{
+    padding: 0 8px 20px;
+  }
+
+  .gyltMain{
+    max-width: 430px;
+  }
+
+  .gyltPhoneFrame{
+    width: min(100%, 390px);
+    padding: 10px;
+    border-radius: 34px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.04), transparent 18%),
+      linear-gradient(180deg, rgba(26,30,39,0.96), rgba(11,13,19,0.98));
+    box-shadow: 0 28px 80px rgba(0,0,0,0.38);
+  }
+
+  .gyltPhoneNotch{
+    width: 118px;
+    height: 24px;
+    margin: -2px auto 10px;
+  }
+
+  .gyltPhoneScreen{
+    max-height: none;
+    overflow: visible;
+    padding: 2px;
+  }
+
+  .gyltPhoneHint{
+    display: block;
+    margin-top: 10px;
+  }
+
+  .gyltWeekGridSimple{
+    gap: 4px;
+  }
+
+  .gyltWeekGridSimple .gyltWeekCard{
+    min-height: 78px;
+    padding: 8px 2px 6px;
+    border-radius: 14px;
+  }
+
+  .gyltWeekGridSimple .gyltWeekDay{
+    font-size: 9px;
+  }
+
+  .gyltWeekGridSimple .gyltWeekDayNumber{
+    font-size: 18px;
+  }
+
+  .gyltDayHeroTop{
+    gap: 10px;
+  }
+
+  .gyltStatsHeroHead{
+    flex-direction: row;
+    align-items: center;
+    margin-top: -16px;
+  }
+
+  .gyltStreakFlame{
+    min-height: 38px;
+    padding: 0 11px;
+    transform: translateY(0);
+  }
+
+  .gyltDayScoreRing{
+    width: 116px;
+    height: 116px;
+  }
+
+  .gyltFloatingAddInline{
+    width: 46px;
+    height: 46px;
+    border-radius: 16px;
+    font-size: 28px;
+  }
+}

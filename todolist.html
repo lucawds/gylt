@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wochen ToDo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="backdrop" class="backdrop hidden"></div>
+  <a href="homepage.html" class="topHomeArrow" aria-label="Zur Homepage">&larr;</a>
+
+  <header class="topbar">
+    <h1>ToDo Liste</h1>
+    <div class="settings">
+      <button id="settingsBtn" class="ghost settingsBtn" aria-label="Settings">&#9776;</button>
+      <div id="settingsMenu" class="settingsMenu hidden">
+        <a href="settings.html" class="settingsItem settingsLink">Einstellungen</a>
+        <button id="themeToggle" class="settingsItem">Light Mode</button>
+        <button id="toggleNextWeek" class="settingsItem">Show Next Week</button>
+        <button id="archiveBtn" class="settingsItem">Archive</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainView" class="view weekShell">
+    <aside class="panel weekSummaryCard gutterCard">
+      <div class="panelHeader">
+        <h3>Weekly Summary</h3>
+        <div class="small" id="weekSumLine">0/0 done</div>
+      </div>
+
+      <div class="chartWrap weekChartWrap">
+        <canvas id="weeklyChart" width="340" height="340"></canvas>
+      </div>
+
+      <div class="small" id="weekSumPercent">0% completed</div>
+
+      <div class="small hint">
+        <span class="legendDot done"></span> done
+        <span class="legendDot open"></span> open
+      </div>
+    </aside>
+
+    <section class="grid" id="daysGrid">
+      <button class="day card" data-day="montag">
+        <div class="cardTitleRow">
+          <div class="cardDate small" id="date-montag"></div>
+          <span>Montag</span>
+          <span class="miniPie" id="pie-montag" aria-label="Fortschritt Montag"></span>
+        </div>
+        <div class="cardMeta"><span class="badge" id="badge-montag">0/0</span></div>
+      </button>
+
+      <button class="day card" data-day="dienstag">
+        <div class="cardTitleRow">
+          <div class="cardDate small" id="date-dienstag"></div>
+          <span>Dienstag</span>
+          <span class="miniPie" id="pie-dienstag" aria-label="Fortschritt Dienstag"></span>
+        </div>
+        <div class="cardMeta"><span class="badge" id="badge-dienstag">0/0</span></div>
+      </button>
+
+      <button class="day card" data-day="mittwoch">
+        <div class="cardTitleRow">
+          <div class="cardDate small" id="date-mittwoch"></div>
+          <span>Mittwoch</span>
+          <span class="miniPie" id="pie-mittwoch" aria-label="Fortschritt Mittwoch"></span>
+        </div>
+        <div class="cardMeta"><span class="badge" id="badge-mittwoch">0/0</span></div>
+      </button>
+
+      <button class="day card" data-day="donnerstag">
+        <div class="cardTitleRow">
+          <div class="cardDate small" id="date-donnerstag"></div>
+          <span>Donnerstag</span>
+          <span class="miniPie" id="pie-donnerstag" aria-label="Fortschritt Donnerstag"></span>
+        </div>
+        <div class="cardMeta"><span class="badge" id="badge-donnerstag">0/0</span></div>
+      </button>
+
+      <button class="day card" data-day="freitag">
+        <div class="cardTitleRow">
+          <div class="cardDate small" id="date-freitag"></div>
+          <span>Freitag</span>
+          <span class="miniPie" id="pie-freitag" aria-label="Fortschritt Freitag"></span>
+        </div>
+        <div class="cardMeta"><span class="badge" id="badge-freitag">0/0</span></div>
+      </button>
+
+      <button class="day card" data-day="samstag">
+        <div class="cardTitleRow">
+          <div class="cardDate small" id="date-samstag"></div>
+          <span>Samstag</span>
+          <span class="miniPie" id="pie-samstag" aria-label="Fortschritt Samstag"></span>
+        </div>
+        <div class="cardMeta"><span class="badge" id="badge-samstag">0/0</span></div>
+      </button>
+
+      <button class="day card" data-day="sonntag">
+        <div class="cardTitleRow">
+          <div class="cardDate small" id="date-sonntag"></div>
+          <span>Sonntag</span>
+          <span class="miniPie" id="pie-sonntag" aria-label="Fortschritt Sonntag"></span>
+        </div>
+        <div class="cardMeta"><span class="badge" id="badge-sonntag">0/0</span></div>
+      </button>
+
+      <article class="card weekNoteCard" id="weekNoteCard">
+        <div class="cardTitleRow">
+          <span>Wochennotiz</span>
+          <span id="weekNoteStatus" class="badge">Bereit</span>
+        </div>
+        <input id="weekNoteInput" class="weekNoteInput" type="text" placeholder="..." />
+      </article>
+    </section>
+
+    <section id="nextWeekSection" class="grid hidden">
+      <button class="day card" data-day="montag" data-week="next">
+        <div class="cardTitleRow">
+          <div class="cardDate small" id="date-next-montag"></div>
+          <span>Montag</span>
+          <span class="miniPie" id="pie-next-montag" aria-label="Fortschritt Montag naechste Woche"></span>
+        </div>
+        <div class="cardMeta"><span class="badge" id="badge-next-montag">0/0</span></div>
+      </button>
+
+      <button class="day card" data-day="dienstag" data-week="next">
+        <div class="cardTitleRow">
+          <div class="cardDate small" id="date-next-dienstag"></div>
+          <span>Dienstag</span>
+          <span class="miniPie" id="pie-next-dienstag" aria-label="Fortschritt Dienstag naechste Woche"></span>
+        </div>
+        <div class="cardMeta"><span class="badge" id="badge-next-dienstag">0/0</span></div>
+      </button>
+
+      <button class="day card" data-day="mittwoch" data-week="next">
+        <div class="cardTitleRow">
+          <div class="cardDate small" id="date-next-mittwoch"></div>
+          <span>Mittwoch</span>
+          <span class="miniPie" id="pie-next-mittwoch" aria-label="Fortschritt Mittwoch naechste Woche"></span>
+        </div>
+        <div class="cardMeta"><span class="badge" id="badge-next-mittwoch">0/0</span></div>
+      </button>
+
+      <button class="day card" data-day="donnerstag" data-week="next">
+        <div class="cardTitleRow">
+          <div class="cardDate small" id="date-next-donnerstag"></div>
+          <span>Donnerstag</span>
+          <span class="miniPie" id="pie-next-donnerstag" aria-label="Fortschritt Donnerstag naechste Woche"></span>
+        </div>
+        <div class="cardMeta"><span class="badge" id="badge-next-donnerstag">0/0</span></div>
+      </button>
+
+      <button class="day card" data-day="freitag" data-week="next">
+        <div class="cardTitleRow">
+          <div class="cardDate small" id="date-next-freitag"></div>
+          <span>Freitag</span>
+          <span class="miniPie" id="pie-next-freitag" aria-label="Fortschritt Freitag naechste Woche"></span>
+        </div>
+        <div class="cardMeta"><span class="badge" id="badge-next-freitag">0/0</span></div>
+      </button>
+
+      <button class="day card" data-day="samstag" data-week="next">
+        <div class="cardTitleRow">
+          <div class="cardDate small" id="date-next-samstag"></div>
+          <span>Samstag</span>
+          <span class="miniPie" id="pie-next-samstag" aria-label="Fortschritt Samstag naechste Woche"></span>
+        </div>
+        <div class="cardMeta"><span class="badge" id="badge-next-samstag">0/0</span></div>
+      </button>
+
+      <button class="day card" data-day="sonntag" data-week="next">
+        <div class="cardTitleRow">
+          <div class="cardDate small" id="date-next-sonntag"></div>
+          <span>Sonntag</span>
+          <span class="miniPie" id="pie-next-sonntag" aria-label="Fortschritt Sonntag naechste Woche"></span>
+        </div>
+        <div class="cardMeta"><span class="badge" id="badge-next-sonntag">0/0</span></div>
+      </button>
+
+      <article class="card weekNoteCard" id="weekNoteNextCard">
+        <div class="cardTitleRow">
+          <span>Wochennotiz Next</span>
+          <span id="weekNoteNextStatus" class="badge">Bereit</span>
+        </div>
+        <input id="weekNoteNextInput" class="weekNoteInput" type="text" placeholder="Notiz fuer naechste Woche..." />
+      </article>
+    </section>
+
+    <aside class="panel rightToolsCard gutterCard gutterCardRight" aria-label="Rechte Sidebar">
+      <section class="toolBlock">
+        <div class="panelHeader">
+          <h3>Mini Kalender</h3>
+          <div class="small" id="miniCalSelected">-</div>
+        </div>
+
+        <div class="miniCalendar">
+          <div class="miniCalNav">
+            <button id="miniCalPrev" class="ghost miniCalBtn" type="button" aria-label="Vorheriger Monat">&larr;</button>
+            <div id="miniCalMonth" class="miniCalMonth">Monat Jahr</div>
+            <button id="miniCalNext" class="ghost miniCalBtn" type="button" aria-label="Naechster Monat">&rarr;</button>
+          </div>
+
+          <div class="miniCalWeekdays">
+            <span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span>
+          </div>
+          <div id="miniCalGrid" class="miniCalGrid"></div>
+        </div>
+      </section>
+
+      <section class="toolBlock">
+        <div class="panelHeader">
+          <h3>Timer</h3>
+          <div class="small" id="timerStateLabel">Bereit</div>
+        </div>
+
+        <div id="timerDisplay" class="timerDisplay">25:00</div>
+
+        <div class="timerActions">
+          <button id="timerStartPause" class="ghost" type="button">Start</button>
+          <button id="timerReset" class="ghost" type="button">Reset</button>
+        </div>
+
+        <div class="timerPresets">
+          <button class="timerPreset" type="button" data-seconds="300">5 min</button>
+          <button class="timerPreset" type="button" data-seconds="900">15 min</button>
+          <button class="timerPreset active" type="button" data-seconds="1500">25 min</button>
+        </div>
+
+        <div class="timerCustomRow">
+          <input
+            id="timerCustomMinutes"
+            class="timerCustomInput"
+            type="number"
+            min="1"
+            max="240"
+            step="1"
+            inputmode="numeric"
+            placeholder="Eigene Minuten"
+            aria-label="Eigene Timer Minuten"
+          />
+          <button id="timerCustomApply" class="ghost" type="button">Anwenden</button>
+        </div>
+      </section>
+
+    </aside>
+
+    <section id="bottomBar" class="bottomBar" aria-label="Unten">
+      <div class="panel bottomBarItem">
+        <div class="panelHeader">
+          <h3>Letzte Aktivität</h3>
+        </div>
+        <div id="lastActivityText" class="bottomBarText">Noch keine Aktivität.</div>
+      </div>
+
+      <div class="panel bottomBarItem">
+        <div class="panelHeader">
+          <h3>Motivation</h3>
+        </div>
+        <div id="motivationText" class="bottomBarText">Kleine Schritte zählen.</div>
+      </div>
+    </section>
+  </main>
+
+  <main id="detailView" class="view hidden" aria-hidden="true">
+    <section class="detailHeader">
+      <button id="backBtn" class="ghost">&larr; Zurück</button>
+      <h2 id="detailTitle">Tag</h2>
+    </section>
+
+    <section class="detailLayout">
+      <div class="panel">
+        <div class="panelHeader">
+          <h3>Aufgaben</h3>
+        </div>
+
+        <div class="addRow">
+          <input id="detailInput" type="text" placeholder="Neue Aufgabe" />
+          <button id="detailAddBtn">Hinzufügen</button>
+        </div>
+
+        <ul id="detailList" class="taskList"></ul>
+      </div>
+
+      <div class="panel">
+        <div class="panelHeader">
+          <h3>Fortschritt</h3>
+          <div class="small" id="progressText">0% erledigt</div>
+        </div>
+        <div class="chartWrap">
+          <canvas id="progressChart" width="300" height="300"></canvas>
+        </div>
+        <div class="small hint">
+          Diagramm: <span class="legendDot done"></span> erledigt
+          <span class="legendDot open"></span> offen
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="ui-preferences.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aktien & Finanzen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="stocksPage">
+  <div id="backdrop" class="backdrop hidden"></div>
+  <a href="homepage.html" class="topHomeArrow" aria-label="Zur Homepage">&larr;</a>
+
+  <header class="topbar">
+    <h1>Aktien & Finanzen</h1>
+
+    <div class="settings">
+      <button id="settingsBtn" class="ghost settingsBtn" aria-label="Settings">&#9776;</button>
+      <div id="settingsMenu" class="settingsMenu hidden">
+        <a href="settings.html" class="settingsItem settingsLink">Einstellungen</a>
+        <button id="themeToggle" class="settingsItem">Light Mode</button>
+        <a href="homepage.html" class="settingsItem settingsLink">Homepage</a>
+        <a href="todolist.html" class="settingsItem settingsLink">ToDo Woche</a>
+        <a href="archive.html" class="settingsItem settingsLink">Archiv</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="view stocksMain">
+    <section class="panel stocksHero">
+      <div>
+        <div class="stocksEyebrow">Finanz-Dashboard</div>
+        <h2 class="stocksTitle">Übersicht über Märkte und Kurse</h2>
+        <div class="small">Tippe auf ein Symbol oder gib dein eigenes ein.</div>
+      </div>
+      <a class="ghost" href="homepage.html">Zurück zur Homepage</a>
+    </section>
+
+    <section class="panel stocksChartCard">
+      <div class="panelHeader">
+        <h3>Chart</h3>
+        <div class="small" id="tvCurrentSymbol">NASDAQ:AAPL</div>
+      </div>
+
+      <div class="stocksQuickHeader">
+        <div class="small">Schnellauswahl</div>
+        <button id="tvQuickReset" class="stocksMiniAction" type="button">Reset</button>
+      </div>
+
+      <div id="stocksQuickSymbols" class="stocksQuickSymbols" aria-label="Schnellauswahl Symbole"></div>
+
+      <div class="tvControlRow">
+        <input
+          id="tvSymbolInput"
+          class="tvSymbolInput"
+          type="text"
+          placeholder="z.B. NASDAQ:AMZN"
+          aria-label="TradingView Symbol"
+        />
+        <button id="tvSymbolApply" class="ghost" type="button">Laden</button>
+      </div>
+
+      <div class="stocksQuickActions">
+        <button id="tvQuickAdd" class="ghost" type="button">+</button>
+      </div>
+
+      <div id="tvChartContainer" class="tvChartContainer stocksChartContainer" aria-label="TradingView Chart"></div>
+    </section>
+
+    <section class="stocksWidgetGrid" aria-label="Finanz Widgets">
+      <article class="panel stocksWidgetCard stocksWidgetCardFull">
+        <div class="panelHeader">
+          <h3>Live Ticker</h3>
+          <div class="small">Indizes, Aktien, Krypto</div>
+        </div>
+        <div id="tvTickerTape" class="tradingview-widget-container stocksWidgetTape"></div>
+      </article>
+
+      <article class="panel stocksWidgetCard">
+        <div class="panelHeader">
+          <h3>Marktüberblick</h3>
+          <div class="small">Aktien, Forex, Krypto</div>
+        </div>
+        <div id="tvMarketOverview" class="tradingview-widget-container stocksWidgetFrame"></div>
+      </article>
+
+      <article class="panel stocksWidgetCard">
+        <div class="panelHeader">
+          <h3>Wirtschaftskalender</h3>
+          <div class="small">Makro-Events</div>
+        </div>
+        <div id="tvEconomicCalendar" class="tradingview-widget-container stocksWidgetFrame"></div>
+      </article>
+    </section>
+
+  </main>
+
+  <script src="ui-preferences.js"></script>
+  <script src="aktien.js"></script>
+</body>
+</html>

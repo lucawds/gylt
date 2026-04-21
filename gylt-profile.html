@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GYLT - Mein Profil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="gylt.css" />
+</head>
+<body class="gyltPage gyltProfilePage">
+  <header class="topbar gyltTopbar">
+    <a href="homepage.html" class="ghost gyltBackLink">Zurück</a>
+
+    <div class="gyltTitleBlock">
+      <div class="small gyltHeaderEyebrow">GYLT Alpha</div>
+      <h1>GYLT</h1>
+    </div>
+
+    <div class="small gyltHeaderMeta">Get Your Live Together</div>
+  </header>
+
+  <main class="view gyltMain">
+    <div class="gyltPhoneStage">
+      <div class="gyltPhoneFrame">
+        <div class="gyltPhoneNotch" aria-hidden="true"></div>
+
+        <div class="gyltPhoneScreen">
+          <section class="panel gyltAppPanel gyltProfileHeaderPanel">
+            <div class="gyltProfileTopCard">
+              <div class="gyltProfileAvatarColumn">
+                <div id="gyltProfileAvatarLarge" class="gyltAvatar gyltAvatarLarge" aria-hidden="true">G</div>
+                <button id="gyltProfileEditToggle" class="ghost gyltProfileEditToggle" type="button">Profil bearbeiten</button>
+              </div>
+
+              <div class="gyltProfileTopMeta">
+                <div class="gyltEyebrow">Mein Profil</div>
+                <h2 id="gyltProfileDisplayName" class="gyltTitle gyltProfileTitle">GYLT Founder Mode</h2>
+
+                <div class="gyltProfileStatsInline" aria-label="Profilzahlen">
+                  <article class="gyltProfileInlineStat">
+                    <strong id="gyltProfileTopBestStreak">0</strong>
+                    <span>Max Streak</span>
+                  </article>
+                  <article class="gyltProfileInlineStat">
+                    <strong id="gyltProfileLevelValue">1</strong>
+                    <span>Level</span>
+                  </article>
+                  <article class="gyltProfileInlineStat">
+                    <strong id="gyltProfileXpValue">0</strong>
+                    <span>XP</span>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+            <p id="gyltProfileBioPreview" class="gyltLead gyltProfileLead">
+              Baue dir ein System, das dich jeden Tag in Spur hält.
+            </p>
+          </section>
+
+          <section id="gyltProfileEditPanel" class="panel gyltAppPanel gyltProfileEditPanel" hidden>
+            <div class="panelHeader">
+              <h3>Profil bearbeiten</h3>
+              <div class="small">Bild, Name und Bio</div>
+            </div>
+
+            <form id="gyltProfileEditForm" class="gyltProfileEditForm">
+              <label class="gyltProfileField">
+                <span class="small">Profilbild</span>
+                <input id="gyltProfileAvatarFileInput" class="gyltInput gyltFileInput" type="file" accept="image/*" />
+                <div class="small gyltProfileUploadHint">Öffnet die Galerie oder Dateiauswahl deines Geräts.</div>
+              </label>
+
+              <label class="gyltProfileField">
+                <span class="small">Name</span>
+                <input id="gyltProfileNameInput" class="gyltInput" type="text" maxlength="28" placeholder="Dein Name" />
+              </label>
+
+              <label class="gyltProfileField gyltProfileFieldWide">
+                <span class="small">Bio</span>
+                <textarea id="gyltProfileBioInput" class="gyltReflectionInput gyltProfileBioInput" placeholder="Was ist gerade dein Fokus?"></textarea>
+              </label>
+
+              <div class="gyltAddSheetActions gyltProfileEditActions">
+                <button id="gyltProfileRemoveImageButton" class="ghost" type="button">Bild entfernen</button>
+                <button id="gyltProfileResetButton" class="ghost" type="button">Zurücksetzen</button>
+                <button class="ghost gyltPrimaryButton" type="submit">Speichern</button>
+              </div>
+            </form>
+
+            <div id="gyltProfileEditStatus" class="small gyltInlineStatus">Noch nichts geändert.</div>
+          </section>
+
+          <section class="panel gyltAppPanel">
+            <div class="panelHeader">
+              <h3>Freunde</h3>
+              <div class="small">Fortschritte vergleichen</div>
+            </div>
+
+            <form id="gyltFriendForm" class="gyltFriendForm">
+              <input id="gyltFriendName" class="gyltInput" type="text" placeholder="Name des Freundes" maxlength="32" />
+              <input id="gyltFriendShare" class="gyltInput gyltInputSmall" type="number" min="0" max="100" placeholder="% Woche" />
+              <input id="gyltFriendStreak" class="gyltInput gyltInputSmall" type="number" min="0" max="365" placeholder="Streak" />
+              <button class="ghost" type="submit">Hinzufügen</button>
+            </form>
+
+            <div id="gyltFriendStatus" class="small gyltInlineStatus">Noch keine Freunde hinzugefügt.</div>
+            <div id="gyltFriendList" class="gyltFriendList" aria-live="polite"></div>
+          </section>
+
+          <section class="panel gyltAppPanel">
+            <div class="panelHeader">
+              <h3>Crews</h3>
+              <div class="small">Kleine Gruppen für Freundesdruck</div>
+            </div>
+
+            <form id="gyltGroupForm" class="gyltGroupForm">
+              <input id="gyltGroupName" class="gyltInput" type="text" maxlength="32" placeholder="Crew-Name" />
+              <button id="gyltGroupCreateButton" class="ghost" type="submit">Erstellen</button>
+            </form>
+
+            <div id="gyltGroupFriendOptions" class="gyltGroupFriendPicker" aria-live="polite"></div>
+            <div id="gyltGroupStatus" class="small gyltInlineStatus">Noch keine Crew erstellt.</div>
+            <div id="gyltGroupList" class="gyltProfileStack" aria-live="polite"></div>
+          </section>
+
+          <nav class="gyltBottomNav" aria-label="App Navigation">
+            <a class="gyltBottomNavItem" href="gylt.html">Tagebuch</a>
+            <a class="gyltBottomNavItem" href="gylt-stats.html">Statistiken</a>
+            <a class="gyltBottomNavItem isActive" href="gylt-profile.html">Mein Profil</a>
+            <a class="gyltBottomNavItem" href="gylt-fitness.html">Fitness</a>
+            <a class="gyltBottomNavItem" href="gylt-settings.html">Einstellungen</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="gyltPhoneHint small">Handy-Ansicht für die spätere App.</div>
+    </div>
+  </main>
+  <script src="gylt-profile.js"></script>
+</body>
+</html>

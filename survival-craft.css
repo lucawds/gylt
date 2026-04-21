@@ -1,0 +1,79 @@
+body.survivalCraftPage .topbar {
+  max-width: 1180px;
+  margin-bottom: 14px;
+}
+
+.scTopActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.scMain {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 10px 28px;
+  display: grid;
+  gap: 12px;
+}
+
+.scHudGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(110px, 1fr));
+  gap: 10px;
+}
+
+.scStat {
+  border: 1px solid var(--panelBorder);
+  border-radius: 12px;
+  padding: 10px;
+  background: rgba(7, 7, 7, 0.36);
+}
+
+body.light .scStat {
+  border-color: var(--l-panelBorder);
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.scValue {
+  font-size: 28px;
+  font-weight: 690;
+  margin-top: 2px;
+}
+
+.scMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.scStagePanel {
+  padding: 12px;
+}
+
+.scCanvas {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 12 / 7;
+  border-radius: 14px;
+  border: 1px solid var(--panelBorder);
+  background: radial-gradient(circle at 50% 0%, rgba(var(--accent-rgb), 0.18), rgba(2, 8, 6, 0.92) 70%);
+}
+
+body.light .scCanvas {
+  border-color: var(--l-panelBorder);
+  background: radial-gradient(circle at 50% 0%, rgba(var(--accent-rgb), 0.14), rgba(241, 246, 245, 0.96) 70%);
+}
+
+.scHelp .small {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 950px) {
+  .scHudGrid {
+    grid-template-columns: repeat(2, minmax(110px, 1fr));
+  }
+}

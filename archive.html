@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a href="homepage.html" class="topHomeArrow" aria-label="Zur Homepage">&larr;</a>
+  <header class="topbar">
+    <h1>Archive</h1>
+    <div class="archiveTopActions">
+      <button id="themeToggle" class="ghost" type="button">Light Mode</button>
+      <a href="settings.html" class="ghost archiveBackLink">Einstellungen</a>
+      <a href="todolist.html" class="ghost archiveBackLink">Zurueck</a>
+    </div>
+  </header>
+
+  <main class="view archivePageMain">
+    <section class="panel archivePagePanel">
+      <div class="panelHeader">
+        <h3>Wochen Archive</h3>
+      </div>
+
+      <div id="archiveList" class="archiveList"></div>
+
+      <div id="archiveDetail" class="archiveDetail hidden">
+        <div class="panelHeader" style="margin-top:12px;">
+          <h3 id="archiveDetailTitle">Woche</h3>
+          <button id="archiveBackBtn" class="ghost" type="button">&larr; Back</button>
+        </div>
+
+        <div class="small" id="archiveDetailMeta"></div>
+
+        <div class="chartWrap" style="padding-top:10px;">
+          <canvas id="archiveChart" width="320" height="320"></canvas>
+        </div>
+
+        <div id="archiveDetailDays" class="archiveDays"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="ui-preferences.js"></script>
+  <script src="archive.js"></script>
+</body>
+</html>

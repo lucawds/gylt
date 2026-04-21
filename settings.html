@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Einstellungen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="settingsPage">
+  <a href="homepage.html" class="topHomeArrow" aria-label="Zur Homepage">&larr;</a>
+
+  <header class="topbar">
+    <h1>Einstellungen</h1>
+  </header>
+
+  <main class="view settingsMain">
+    <section class="panel settingsPanel">
+      <div class="panelHeader">
+        <h3>Darstellung</h3>
+        <div class="small" id="settingsState">Gespeichert</div>
+      </div>
+
+      <div class="settingsRow">
+        <button id="themeToggle" class="ghost" type="button">Light Mode</button>
+      </div>
+
+      <div class="settingsRow">
+        <button id="layoutEditToggle" class="ghost" type="button">Layout bearbeiten: Aus</button>
+        <div class="small settingsLayoutHint">Auf Homepage Karten per Drag &amp; Drop neu anordnen.</div>
+      </div>
+
+      <div class="settingsRow">
+        <div class="small">Akzentfarbe</div>
+        <div class="settingsAccentRow">
+          <input id="accentColorInput" class="settingsAccentInput" type="color" aria-label="Akzentfarbe" />
+          <code id="accentValue" class="settingsAccentValue">#78a0ff</code>
+          <button id="accentResetBtn" class="ghost" type="button">Akzent zurücksetzen</button>
+        </div>
+      </div>
+
+      <div class="settingsRow">
+        <div class="small">Akzentfarbe gilt auf allen Seiten.</div>
+      </div>
+
+      <div class="settingsRow">
+        <div class="small">Presets</div> 
+        <div class="settingsPresetGroup">
+          <div class="small settingsPresetTitle">Dark Presets</div>
+          <div class="settingsPresetGrid">
+            <button class="ghost settingsPresetBtn" type="button" data-preset="dark_classic">Standard</button>
+            <button class="ghost settingsPresetBtn" type="button" data-preset="royal_green">Royal Green</button>
+            <button class="ghost settingsPresetBtn" type="button" data-preset="wine_red">Wine Red</button>
+            <button class="ghost settingsPresetBtn" type="button" data-preset="navy_blue">Navy Blue</button>
+          </div>
+        </div>
+
+        <div class="settingsPresetGroup">
+          <div class="small settingsPresetTitle">Light Presets</div>
+          <div class="settingsPresetGrid settingsPresetGridLight">
+            <button class="ghost settingsPresetBtn" type="button" data-preset="light_beige">Light Weiss</button>
+            <button class="ghost settingsPresetBtn" type="button" data-preset="light_silver">Light Silber/Grau</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="settingsRow settingsLinksRow">
+        <a href="homepage.html" class="ghost">Homepage</a>
+        <a href="todolist.html" class="ghost">ToDo Woche</a>
+        <a href="sport.html" class="ghost">Sport</a>
+        <a href="aktien.html" class="ghost">Aktien</a>
+        <a href="archive.html" class="ghost">Archiv</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="ui-preferences.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>
