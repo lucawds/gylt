@@ -5,6 +5,7 @@ const fitnessMuscleElements = {
   title: document.getElementById("gyltFitnessMuscleTitle"),
   text: document.getElementById("gyltFitnessMuscleText"),
   meta: document.getElementById("gyltFitnessMuscleMeta"),
+  searchInput: document.getElementById("gyltFitnessExerciseSearch"),
   groupSelect: document.getElementById("gyltFitnessExerciseGroupSelect"),
   createButton: document.getElementById("gyltFitnessExerciseCreateButton"),
   exerciseList: document.getElementById("gyltFitnessExerciseList"),
@@ -14,6 +15,7 @@ const fitnessMuscleElements = {
 let selectedExerciseIds = [];
 let activeGroup = null;
 let activePlan = null;
+let exerciseSearchQuery = "";
 
 initFitnessMusclePage();
 
@@ -44,6 +46,11 @@ function initFitnessMusclePage() {
 }
 
 function bindFitnessMuscleEvents() {
+  fitnessMuscleElements.searchInput?.addEventListener("input", () => {
+    exerciseSearchQuery = fitnessMuscleElements.searchInput.value;
+    renderExerciseOptions();
+  });
+
   fitnessMuscleElements.groupSelect?.addEventListener("change", () => {
     const groupId = fitnessMuscleElements.groupSelect.value;
     if (!groupId || groupId === activeGroup?.id || !activePlan) return;
@@ -119,8 +126,22 @@ function renderExerciseOptions() {
   if (!fitnessMuscleElements.exerciseList || !activeGroup) return;
 
   fitnessMuscleElements.exerciseList.innerHTML = "";
+  const searchQuery = normalizeSearchValue(exerciseSearchQuery);
+  const visibleExercises = activeGroup.exercises.filter((exercise) => {
+    if (!searchQuery) return true;
+    return normalizeSearchValue(exercise.title).includes(searchQuery);
+  });
 
-  activeGroup.exercises.forEach((exercise) => {
+  if (!visibleExercises.length) {
+    fitnessMuscleElements.exerciseList.innerHTML = `
+      <div class="gyltEmptyState">
+        Keine Übung gefunden.
+      </div>
+    `;
+    return;
+  }
+
+  visibleExercises.forEach((exercise) => {
     const isSelected = selectedExerciseIds.includes(exercise.id);
     const button = document.createElement("button");
     button.className = `gyltFitnessExerciseOption${isSelected ? " isSelected" : ""}`;
@@ -174,4 +195,12 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function normalizeSearchValue(value) {
+  return String(value || "")
+    .trim()
+    .toLocaleLowerCase("de-DE")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 }

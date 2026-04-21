@@ -181,38 +181,30 @@ a{
 }
 
 .gyltPhoneFrame{
-  width: min(100%, 430px);
-  padding: 14px;
-  border-radius: 42px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.05), transparent 16%),
-    linear-gradient(180deg, rgba(34,38,49,0.94), rgba(12,14,21,0.98));
-  box-shadow: 0 38px 110px rgba(0,0,0,0.46);
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .gyltPhoneNotch{
-  width: 148px;
-  height: 30px;
-  margin: -2px auto 12px;
-  border-radius: 0 0 18px 18px;
-  background: rgba(6,8,13,0.98);
-  border: 1px solid rgba(255,255,255,0.04);
+  display: none;
 }
 
 .gyltPhoneScreen{
   display: flex;
   flex-direction: column;
   gap: 14px;
-  max-height: calc(100vh - 200px);
-  overflow: auto;
-  padding: 4px;
-  scrollbar-width: thin;
+  max-height: none;
+  overflow: visible;
+  padding: 0;
+  scrollbar-width: auto;
 }
 
 .gyltPhoneHint{
-  margin-top: 12px;
-  text-align: center;
+  display: none;
 }
 
 .gyltHero{
@@ -2495,7 +2487,12 @@ body.gyltDayDetailPage .gyltWeekPanel{
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.gyltFitnessCategorySelect{
+.gyltFitnessExerciseSearch{
+  grid-column: 1 / -1;
+}
+
+.gyltFitnessCategorySelect,
+.gyltFitnessExerciseSearch{
   min-height: 58px;
   border: 0;
   border-radius: 18px;
@@ -2504,6 +2501,16 @@ body.gyltDayDetailPage .gyltWeekPanel{
   font: inherit;
   font-size: 18px;
   padding: 0 18px;
+  outline: none;
+}
+
+.gyltFitnessExerciseSearch::placeholder{
+  color: rgba(243,246,251,0.42);
+}
+
+.gyltFitnessExerciseSearch:focus-visible{
+  outline: 2px solid rgba(255,198,161,0.92);
+  outline-offset: 2px;
 }
 
 body.gyltFitnessPage .gyltFitnessExerciseList{
@@ -2559,8 +2566,39 @@ body.gyltDayDetailPage .gyltMain{
   max-width: 460px;
 }
 
+body.gyltDiaryOverview,
+body.gyltDayDetailPage{
+  min-height: 100vh;
+}
+
+body.gyltDiaryOverview .gyltMain,
+body.gyltDayDetailPage .gyltMain{
+  min-height: calc(100vh - 122px);
+}
+
+body.gyltDiaryOverview .gyltPhoneStage,
+body.gyltDayDetailPage .gyltPhoneStage,
+body.gyltDiaryOverview .gyltPhoneFrame,
+body.gyltDayDetailPage .gyltPhoneFrame{
+  min-height: inherit;
+}
+
 body.gyltDayDetailPage .gyltPhoneScreen{
   gap: 12px;
+}
+
+body.gyltDiaryOverview .gyltPhoneScreen,
+body.gyltDayDetailPage .gyltPhoneScreen{
+  width: 100%;
+  min-height: inherit;
+  max-height: none;
+  overflow: visible;
+  padding: 0;
+}
+
+body.gyltDiaryOverview .gyltBottomNav,
+body.gyltDayDetailPage .gyltBottomNav{
+  margin-top: auto;
 }
 
 body.gyltDayDetailPage .gyltAddSheet{
@@ -2698,20 +2736,16 @@ body.gyltDayDetailPage .gyltAddSheet{
   }
 
   .gyltPhoneFrame{
-    width: min(100%, 390px);
-    padding: 10px;
-    border-radius: 34px;
-    border: 1px solid rgba(255,255,255,0.1);
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.04), transparent 18%),
-      linear-gradient(180deg, rgba(26,30,39,0.96), rgba(11,13,19,0.98));
-    box-shadow: 0 28px 80px rgba(0,0,0,0.38);
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
   }
 
   .gyltPhoneNotch{
-    width: 118px;
-    height: 24px;
-    margin: -2px auto 10px;
+    display: none;
   }
 
   .gyltPhoneScreen{
@@ -2721,8 +2755,7 @@ body.gyltDayDetailPage .gyltAddSheet{
   }
 
   .gyltPhoneHint{
-    display: block;
-    margin-top: 10px;
+    display: none;
   }
 
   .gyltWeekGridSimple{
